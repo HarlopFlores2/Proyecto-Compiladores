@@ -1,0 +1,1456 @@
+Created by PLY (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> programa
+Rule 1     programa -> int declaraciones_var main parentesis_izq parentesis_der llave_izq bloque llave_der
+Rule 2     declaraciones_var -> identificador coma declaraciones_var
+Rule 3     declaraciones_var -> identificador punto_coma
+Rule 4     bloque -> sentencia bloque
+Rule 5     bloque -> sentencia
+Rule 6     sentencia -> expresion_asignacion punto_coma
+Rule 7     sentencia -> condicion
+Rule 8     sentencia -> ciclo
+Rule 9     sentencia -> escritura
+Rule 10    sentencia -> comentario_multilinea
+Rule 11    escritura_cadena -> puts parentesis_izq cadena parentesis_der punto_coma
+Rule 12    escritura_entero -> putw parentesis_izq expresion parentesis_der punto_coma
+Rule 13    escritura -> escritura_cadena
+Rule 14    escritura -> escritura_entero
+Rule 15    expresion_asignacion -> identificador asignacion expresion
+Rule 16    condicion -> if parentesis_izq expresion parentesis_der llave_izq bloque llave_der
+Rule 17    condicion -> if parentesis_izq expresion parentesis_der llave_izq bloque llave_der else llave_izq bloque llave_der
+Rule 18    ciclo -> while parentesis_izq expresion parentesis_der llave_izq bloque llave_der
+Rule 19    expresion -> expresion suma valor_expresion
+Rule 20    expresion -> expresion resta valor_expresion
+Rule 21    expresion -> expresion multiplicacion valor_expresion
+Rule 22    expresion -> expresion division valor_expresion
+Rule 23    expresion -> expresion modulo valor_expresion
+Rule 24    expresion -> expresion mayor valor_expresion
+Rule 25    expresion -> expresion menor valor_expresion
+Rule 26    expresion -> expresion mayor_igual valor_expresion
+Rule 27    expresion -> expresion menor_igual valor_expresion
+Rule 28    expresion -> expresion igual valor_expresion
+Rule 29    expresion -> expresion diferente valor_expresion
+Rule 30    expresion -> expresion or valor_expresion
+Rule 31    expresion -> expresion and valor_expresion
+Rule 32    expresion -> parentesis_izq expresion parentesis_der
+Rule 33    expresion -> valor_expresion
+Rule 34    valor_expresion -> identificador
+Rule 35    valor_expresion -> number
+
+Terminals, with rules where they appear
+
+and                  : 31
+asignacion           : 15
+cadena               : 11
+coma                 : 2
+comentario_multilinea : 10
+diferente            : 29
+division             : 22
+else                 : 17
+error                : 
+identificador        : 2 3 15 34
+if                   : 16 17
+igual                : 28
+int                  : 1
+llave_der            : 1 16 17 17 18
+llave_izq            : 1 16 17 17 18
+main                 : 1
+mayor                : 24
+mayor_igual          : 26
+menor                : 25
+menor_igual          : 27
+modulo               : 23
+multiplicacion       : 21
+number               : 35
+or                   : 30
+parentesis_der       : 1 11 12 16 17 18 32
+parentesis_izq       : 1 11 12 16 17 18 32
+punto_coma           : 3 6 11 12
+puts                 : 11
+putw                 : 12
+resta                : 20
+suma                 : 19
+while                : 18
+
+Nonterminals, with rules where they appear
+
+bloque               : 1 4 16 17 17 18
+ciclo                : 8
+condicion            : 7
+declaraciones_var    : 1 2
+escritura            : 9
+escritura_cadena     : 13
+escritura_entero     : 14
+expresion            : 12 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32
+expresion_asignacion : 6
+programa             : 0
+sentencia            : 4 5
+valor_expresion      : 19 20 21 22 23 24 25 26 27 28 29 30 31 33
+
+
+state 0
+
+    (0) S' -> . programa
+    (1) programa -> . int declaraciones_var main parentesis_izq parentesis_der llave_izq bloque llave_der
+
+    int             shift and go to state 2
+
+    programa                       shift and go to state 1
+
+state 1
+
+    (0) S' -> programa .
+
+
+
+state 2
+
+    (1) programa -> int . declaraciones_var main parentesis_izq parentesis_der llave_izq bloque llave_der
+    (2) declaraciones_var -> . identificador coma declaraciones_var
+    (3) declaraciones_var -> . identificador punto_coma
+
+    identificador   shift and go to state 4
+
+    declaraciones_var              shift and go to state 3
+
+state 3
+
+    (1) programa -> int declaraciones_var . main parentesis_izq parentesis_der llave_izq bloque llave_der
+
+    main            shift and go to state 5
+
+
+state 4
+
+    (2) declaraciones_var -> identificador . coma declaraciones_var
+    (3) declaraciones_var -> identificador . punto_coma
+
+    coma            shift and go to state 6
+    punto_coma      shift and go to state 7
+
+
+state 5
+
+    (1) programa -> int declaraciones_var main . parentesis_izq parentesis_der llave_izq bloque llave_der
+
+    parentesis_izq  shift and go to state 8
+
+
+state 6
+
+    (2) declaraciones_var -> identificador coma . declaraciones_var
+    (2) declaraciones_var -> . identificador coma declaraciones_var
+    (3) declaraciones_var -> . identificador punto_coma
+
+    identificador   shift and go to state 4
+
+    declaraciones_var              shift and go to state 9
+
+state 7
+
+    (3) declaraciones_var -> identificador punto_coma .
+
+    main            reduce using rule 3 (declaraciones_var -> identificador punto_coma .)
+
+
+state 8
+
+    (1) programa -> int declaraciones_var main parentesis_izq . parentesis_der llave_izq bloque llave_der
+
+    parentesis_der  shift and go to state 10
+
+
+state 9
+
+    (2) declaraciones_var -> identificador coma declaraciones_var .
+
+    main            reduce using rule 2 (declaraciones_var -> identificador coma declaraciones_var .)
+
+
+state 10
+
+    (1) programa -> int declaraciones_var main parentesis_izq parentesis_der . llave_izq bloque llave_der
+
+    llave_izq       shift and go to state 11
+
+
+state 11
+
+    (1) programa -> int declaraciones_var main parentesis_izq parentesis_der llave_izq . bloque llave_der
+    (4) bloque -> . sentencia bloque
+    (5) bloque -> . sentencia
+    (6) sentencia -> . expresion_asignacion punto_coma
+    (7) sentencia -> . condicion
+    (8) sentencia -> . ciclo
+    (9) sentencia -> . escritura
+    (10) sentencia -> . comentario_multilinea
+    (15) expresion_asignacion -> . identificador asignacion expresion
+    (16) condicion -> . if parentesis_izq expresion parentesis_der llave_izq bloque llave_der
+    (17) condicion -> . if parentesis_izq expresion parentesis_der llave_izq bloque llave_der else llave_izq bloque llave_der
+    (18) ciclo -> . while parentesis_izq expresion parentesis_der llave_izq bloque llave_der
+    (13) escritura -> . escritura_cadena
+    (14) escritura -> . escritura_entero
+    (11) escritura_cadena -> . puts parentesis_izq cadena parentesis_der punto_coma
+    (12) escritura_entero -> . putw parentesis_izq expresion parentesis_der punto_coma
+
+    comentario_multilinea shift and go to state 18
+    identificador   shift and go to state 19
+    if              shift and go to state 20
+    while           shift and go to state 21
+    puts            shift and go to state 24
+    putw            shift and go to state 25
+
+    bloque                         shift and go to state 12
+    sentencia                      shift and go to state 13
+    expresion_asignacion           shift and go to state 14
+    condicion                      shift and go to state 15
+    ciclo                          shift and go to state 16
+    escritura                      shift and go to state 17
+    escritura_cadena               shift and go to state 22
+    escritura_entero               shift and go to state 23
+
+state 12
+
+    (1) programa -> int declaraciones_var main parentesis_izq parentesis_der llave_izq bloque . llave_der
+
+    llave_der       shift and go to state 26
+
+
+state 13
+
+    (4) bloque -> sentencia . bloque
+    (5) bloque -> sentencia .
+    (4) bloque -> . sentencia bloque
+    (5) bloque -> . sentencia
+    (6) sentencia -> . expresion_asignacion punto_coma
+    (7) sentencia -> . condicion
+    (8) sentencia -> . ciclo
+    (9) sentencia -> . escritura
+    (10) sentencia -> . comentario_multilinea
+    (15) expresion_asignacion -> . identificador asignacion expresion
+    (16) condicion -> . if parentesis_izq expresion parentesis_der llave_izq bloque llave_der
+    (17) condicion -> . if parentesis_izq expresion parentesis_der llave_izq bloque llave_der else llave_izq bloque llave_der
+    (18) ciclo -> . while parentesis_izq expresion parentesis_der llave_izq bloque llave_der
+    (13) escritura -> . escritura_cadena
+    (14) escritura -> . escritura_entero
+    (11) escritura_cadena -> . puts parentesis_izq cadena parentesis_der punto_coma
+    (12) escritura_entero -> . putw parentesis_izq expresion parentesis_der punto_coma
+
+    llave_der       reduce using rule 5 (bloque -> sentencia .)
+    comentario_multilinea shift and go to state 18
+    identificador   shift and go to state 19
+    if              shift and go to state 20
+    while           shift and go to state 21
+    puts            shift and go to state 24
+    putw            shift and go to state 25
+
+    sentencia                      shift and go to state 13
+    bloque                         shift and go to state 27
+    expresion_asignacion           shift and go to state 14
+    condicion                      shift and go to state 15
+    ciclo                          shift and go to state 16
+    escritura                      shift and go to state 17
+    escritura_cadena               shift and go to state 22
+    escritura_entero               shift and go to state 23
+
+state 14
+
+    (6) sentencia -> expresion_asignacion . punto_coma
+
+    punto_coma      shift and go to state 28
+
+
+state 15
+
+    (7) sentencia -> condicion .
+
+    comentario_multilinea reduce using rule 7 (sentencia -> condicion .)
+    identificador   reduce using rule 7 (sentencia -> condicion .)
+    if              reduce using rule 7 (sentencia -> condicion .)
+    while           reduce using rule 7 (sentencia -> condicion .)
+    puts            reduce using rule 7 (sentencia -> condicion .)
+    putw            reduce using rule 7 (sentencia -> condicion .)
+    llave_der       reduce using rule 7 (sentencia -> condicion .)
+
+
+state 16
+
+    (8) sentencia -> ciclo .
+
+    comentario_multilinea reduce using rule 8 (sentencia -> ciclo .)
+    identificador   reduce using rule 8 (sentencia -> ciclo .)
+    if              reduce using rule 8 (sentencia -> ciclo .)
+    while           reduce using rule 8 (sentencia -> ciclo .)
+    puts            reduce using rule 8 (sentencia -> ciclo .)
+    putw            reduce using rule 8 (sentencia -> ciclo .)
+    llave_der       reduce using rule 8 (sentencia -> ciclo .)
+
+
+state 17
+
+    (9) sentencia -> escritura .
+
+    comentario_multilinea reduce using rule 9 (sentencia -> escritura .)
+    identificador   reduce using rule 9 (sentencia -> escritura .)
+    if              reduce using rule 9 (sentencia -> escritura .)
+    while           reduce using rule 9 (sentencia -> escritura .)
+    puts            reduce using rule 9 (sentencia -> escritura .)
+    putw            reduce using rule 9 (sentencia -> escritura .)
+    llave_der       reduce using rule 9 (sentencia -> escritura .)
+
+
+state 18
+
+    (10) sentencia -> comentario_multilinea .
+
+    comentario_multilinea reduce using rule 10 (sentencia -> comentario_multilinea .)
+    identificador   reduce using rule 10 (sentencia -> comentario_multilinea .)
+    if              reduce using rule 10 (sentencia -> comentario_multilinea .)
+    while           reduce using rule 10 (sentencia -> comentario_multilinea .)
+    puts            reduce using rule 10 (sentencia -> comentario_multilinea .)
+    putw            reduce using rule 10 (sentencia -> comentario_multilinea .)
+    llave_der       reduce using rule 10 (sentencia -> comentario_multilinea .)
+
+
+state 19
+
+    (15) expresion_asignacion -> identificador . asignacion expresion
+
+    asignacion      shift and go to state 29
+
+
+state 20
+
+    (16) condicion -> if . parentesis_izq expresion parentesis_der llave_izq bloque llave_der
+    (17) condicion -> if . parentesis_izq expresion parentesis_der llave_izq bloque llave_der else llave_izq bloque llave_der
+
+    parentesis_izq  shift and go to state 30
+
+
+state 21
+
+    (18) ciclo -> while . parentesis_izq expresion parentesis_der llave_izq bloque llave_der
+
+    parentesis_izq  shift and go to state 31
+
+
+state 22
+
+    (13) escritura -> escritura_cadena .
+
+    comentario_multilinea reduce using rule 13 (escritura -> escritura_cadena .)
+    identificador   reduce using rule 13 (escritura -> escritura_cadena .)
+    if              reduce using rule 13 (escritura -> escritura_cadena .)
+    while           reduce using rule 13 (escritura -> escritura_cadena .)
+    puts            reduce using rule 13 (escritura -> escritura_cadena .)
+    putw            reduce using rule 13 (escritura -> escritura_cadena .)
+    llave_der       reduce using rule 13 (escritura -> escritura_cadena .)
+
+
+state 23
+
+    (14) escritura -> escritura_entero .
+
+    comentario_multilinea reduce using rule 14 (escritura -> escritura_entero .)
+    identificador   reduce using rule 14 (escritura -> escritura_entero .)
+    if              reduce using rule 14 (escritura -> escritura_entero .)
+    while           reduce using rule 14 (escritura -> escritura_entero .)
+    puts            reduce using rule 14 (escritura -> escritura_entero .)
+    putw            reduce using rule 14 (escritura -> escritura_entero .)
+    llave_der       reduce using rule 14 (escritura -> escritura_entero .)
+
+
+state 24
+
+    (11) escritura_cadena -> puts . parentesis_izq cadena parentesis_der punto_coma
+
+    parentesis_izq  shift and go to state 32
+
+
+state 25
+
+    (12) escritura_entero -> putw . parentesis_izq expresion parentesis_der punto_coma
+
+    parentesis_izq  shift and go to state 33
+
+
+state 26
+
+    (1) programa -> int declaraciones_var main parentesis_izq parentesis_der llave_izq bloque llave_der .
+
+    $end            reduce using rule 1 (programa -> int declaraciones_var main parentesis_izq parentesis_der llave_izq bloque llave_der .)
+
+
+state 27
+
+    (4) bloque -> sentencia bloque .
+
+    llave_der       reduce using rule 4 (bloque -> sentencia bloque .)
+
+
+state 28
+
+    (6) sentencia -> expresion_asignacion punto_coma .
+
+    comentario_multilinea reduce using rule 6 (sentencia -> expresion_asignacion punto_coma .)
+    identificador   reduce using rule 6 (sentencia -> expresion_asignacion punto_coma .)
+    if              reduce using rule 6 (sentencia -> expresion_asignacion punto_coma .)
+    while           reduce using rule 6 (sentencia -> expresion_asignacion punto_coma .)
+    puts            reduce using rule 6 (sentencia -> expresion_asignacion punto_coma .)
+    putw            reduce using rule 6 (sentencia -> expresion_asignacion punto_coma .)
+    llave_der       reduce using rule 6 (sentencia -> expresion_asignacion punto_coma .)
+
+
+state 29
+
+    (15) expresion_asignacion -> identificador asignacion . expresion
+    (19) expresion -> . expresion suma valor_expresion
+    (20) expresion -> . expresion resta valor_expresion
+    (21) expresion -> . expresion multiplicacion valor_expresion
+    (22) expresion -> . expresion division valor_expresion
+    (23) expresion -> . expresion modulo valor_expresion
+    (24) expresion -> . expresion mayor valor_expresion
+    (25) expresion -> . expresion menor valor_expresion
+    (26) expresion -> . expresion mayor_igual valor_expresion
+    (27) expresion -> . expresion menor_igual valor_expresion
+    (28) expresion -> . expresion igual valor_expresion
+    (29) expresion -> . expresion diferente valor_expresion
+    (30) expresion -> . expresion or valor_expresion
+    (31) expresion -> . expresion and valor_expresion
+    (32) expresion -> . parentesis_izq expresion parentesis_der
+    (33) expresion -> . valor_expresion
+    (34) valor_expresion -> . identificador
+    (35) valor_expresion -> . number
+
+    parentesis_izq  shift and go to state 37
+    identificador   shift and go to state 34
+    number          shift and go to state 38
+
+    expresion                      shift and go to state 35
+    valor_expresion                shift and go to state 36
+
+state 30
+
+    (16) condicion -> if parentesis_izq . expresion parentesis_der llave_izq bloque llave_der
+    (17) condicion -> if parentesis_izq . expresion parentesis_der llave_izq bloque llave_der else llave_izq bloque llave_der
+    (19) expresion -> . expresion suma valor_expresion
+    (20) expresion -> . expresion resta valor_expresion
+    (21) expresion -> . expresion multiplicacion valor_expresion
+    (22) expresion -> . expresion division valor_expresion
+    (23) expresion -> . expresion modulo valor_expresion
+    (24) expresion -> . expresion mayor valor_expresion
+    (25) expresion -> . expresion menor valor_expresion
+    (26) expresion -> . expresion mayor_igual valor_expresion
+    (27) expresion -> . expresion menor_igual valor_expresion
+    (28) expresion -> . expresion igual valor_expresion
+    (29) expresion -> . expresion diferente valor_expresion
+    (30) expresion -> . expresion or valor_expresion
+    (31) expresion -> . expresion and valor_expresion
+    (32) expresion -> . parentesis_izq expresion parentesis_der
+    (33) expresion -> . valor_expresion
+    (34) valor_expresion -> . identificador
+    (35) valor_expresion -> . number
+
+    parentesis_izq  shift and go to state 37
+    identificador   shift and go to state 34
+    number          shift and go to state 38
+
+    expresion                      shift and go to state 39
+    valor_expresion                shift and go to state 36
+
+state 31
+
+    (18) ciclo -> while parentesis_izq . expresion parentesis_der llave_izq bloque llave_der
+    (19) expresion -> . expresion suma valor_expresion
+    (20) expresion -> . expresion resta valor_expresion
+    (21) expresion -> . expresion multiplicacion valor_expresion
+    (22) expresion -> . expresion division valor_expresion
+    (23) expresion -> . expresion modulo valor_expresion
+    (24) expresion -> . expresion mayor valor_expresion
+    (25) expresion -> . expresion menor valor_expresion
+    (26) expresion -> . expresion mayor_igual valor_expresion
+    (27) expresion -> . expresion menor_igual valor_expresion
+    (28) expresion -> . expresion igual valor_expresion
+    (29) expresion -> . expresion diferente valor_expresion
+    (30) expresion -> . expresion or valor_expresion
+    (31) expresion -> . expresion and valor_expresion
+    (32) expresion -> . parentesis_izq expresion parentesis_der
+    (33) expresion -> . valor_expresion
+    (34) valor_expresion -> . identificador
+    (35) valor_expresion -> . number
+
+    parentesis_izq  shift and go to state 37
+    identificador   shift and go to state 34
+    number          shift and go to state 38
+
+    expresion                      shift and go to state 40
+    valor_expresion                shift and go to state 36
+
+state 32
+
+    (11) escritura_cadena -> puts parentesis_izq . cadena parentesis_der punto_coma
+
+    cadena          shift and go to state 41
+
+
+state 33
+
+    (12) escritura_entero -> putw parentesis_izq . expresion parentesis_der punto_coma
+    (19) expresion -> . expresion suma valor_expresion
+    (20) expresion -> . expresion resta valor_expresion
+    (21) expresion -> . expresion multiplicacion valor_expresion
+    (22) expresion -> . expresion division valor_expresion
+    (23) expresion -> . expresion modulo valor_expresion
+    (24) expresion -> . expresion mayor valor_expresion
+    (25) expresion -> . expresion menor valor_expresion
+    (26) expresion -> . expresion mayor_igual valor_expresion
+    (27) expresion -> . expresion menor_igual valor_expresion
+    (28) expresion -> . expresion igual valor_expresion
+    (29) expresion -> . expresion diferente valor_expresion
+    (30) expresion -> . expresion or valor_expresion
+    (31) expresion -> . expresion and valor_expresion
+    (32) expresion -> . parentesis_izq expresion parentesis_der
+    (33) expresion -> . valor_expresion
+    (34) valor_expresion -> . identificador
+    (35) valor_expresion -> . number
+
+    parentesis_izq  shift and go to state 37
+    identificador   shift and go to state 34
+    number          shift and go to state 38
+
+    expresion                      shift and go to state 42
+    valor_expresion                shift and go to state 36
+
+state 34
+
+    (34) valor_expresion -> identificador .
+
+    suma            reduce using rule 34 (valor_expresion -> identificador .)
+    resta           reduce using rule 34 (valor_expresion -> identificador .)
+    multiplicacion  reduce using rule 34 (valor_expresion -> identificador .)
+    division        reduce using rule 34 (valor_expresion -> identificador .)
+    modulo          reduce using rule 34 (valor_expresion -> identificador .)
+    mayor           reduce using rule 34 (valor_expresion -> identificador .)
+    menor           reduce using rule 34 (valor_expresion -> identificador .)
+    mayor_igual     reduce using rule 34 (valor_expresion -> identificador .)
+    menor_igual     reduce using rule 34 (valor_expresion -> identificador .)
+    igual           reduce using rule 34 (valor_expresion -> identificador .)
+    diferente       reduce using rule 34 (valor_expresion -> identificador .)
+    or              reduce using rule 34 (valor_expresion -> identificador .)
+    and             reduce using rule 34 (valor_expresion -> identificador .)
+    punto_coma      reduce using rule 34 (valor_expresion -> identificador .)
+    parentesis_der  reduce using rule 34 (valor_expresion -> identificador .)
+
+
+state 35
+
+    (15) expresion_asignacion -> identificador asignacion expresion .
+    (19) expresion -> expresion . suma valor_expresion
+    (20) expresion -> expresion . resta valor_expresion
+    (21) expresion -> expresion . multiplicacion valor_expresion
+    (22) expresion -> expresion . division valor_expresion
+    (23) expresion -> expresion . modulo valor_expresion
+    (24) expresion -> expresion . mayor valor_expresion
+    (25) expresion -> expresion . menor valor_expresion
+    (26) expresion -> expresion . mayor_igual valor_expresion
+    (27) expresion -> expresion . menor_igual valor_expresion
+    (28) expresion -> expresion . igual valor_expresion
+    (29) expresion -> expresion . diferente valor_expresion
+    (30) expresion -> expresion . or valor_expresion
+    (31) expresion -> expresion . and valor_expresion
+
+    punto_coma      reduce using rule 15 (expresion_asignacion -> identificador asignacion expresion .)
+    suma            shift and go to state 43
+    resta           shift and go to state 44
+    multiplicacion  shift and go to state 45
+    division        shift and go to state 46
+    modulo          shift and go to state 47
+    mayor           shift and go to state 48
+    menor           shift and go to state 49
+    mayor_igual     shift and go to state 50
+    menor_igual     shift and go to state 51
+    igual           shift and go to state 52
+    diferente       shift and go to state 53
+    or              shift and go to state 54
+    and             shift and go to state 55
+
+
+state 36
+
+    (33) expresion -> valor_expresion .
+
+    suma            reduce using rule 33 (expresion -> valor_expresion .)
+    resta           reduce using rule 33 (expresion -> valor_expresion .)
+    multiplicacion  reduce using rule 33 (expresion -> valor_expresion .)
+    division        reduce using rule 33 (expresion -> valor_expresion .)
+    modulo          reduce using rule 33 (expresion -> valor_expresion .)
+    mayor           reduce using rule 33 (expresion -> valor_expresion .)
+    menor           reduce using rule 33 (expresion -> valor_expresion .)
+    mayor_igual     reduce using rule 33 (expresion -> valor_expresion .)
+    menor_igual     reduce using rule 33 (expresion -> valor_expresion .)
+    igual           reduce using rule 33 (expresion -> valor_expresion .)
+    diferente       reduce using rule 33 (expresion -> valor_expresion .)
+    or              reduce using rule 33 (expresion -> valor_expresion .)
+    and             reduce using rule 33 (expresion -> valor_expresion .)
+    punto_coma      reduce using rule 33 (expresion -> valor_expresion .)
+    parentesis_der  reduce using rule 33 (expresion -> valor_expresion .)
+
+
+state 37
+
+    (32) expresion -> parentesis_izq . expresion parentesis_der
+    (19) expresion -> . expresion suma valor_expresion
+    (20) expresion -> . expresion resta valor_expresion
+    (21) expresion -> . expresion multiplicacion valor_expresion
+    (22) expresion -> . expresion division valor_expresion
+    (23) expresion -> . expresion modulo valor_expresion
+    (24) expresion -> . expresion mayor valor_expresion
+    (25) expresion -> . expresion menor valor_expresion
+    (26) expresion -> . expresion mayor_igual valor_expresion
+    (27) expresion -> . expresion menor_igual valor_expresion
+    (28) expresion -> . expresion igual valor_expresion
+    (29) expresion -> . expresion diferente valor_expresion
+    (30) expresion -> . expresion or valor_expresion
+    (31) expresion -> . expresion and valor_expresion
+    (32) expresion -> . parentesis_izq expresion parentesis_der
+    (33) expresion -> . valor_expresion
+    (34) valor_expresion -> . identificador
+    (35) valor_expresion -> . number
+
+    parentesis_izq  shift and go to state 37
+    identificador   shift and go to state 34
+    number          shift and go to state 38
+
+    expresion                      shift and go to state 56
+    valor_expresion                shift and go to state 36
+
+state 38
+
+    (35) valor_expresion -> number .
+
+    suma            reduce using rule 35 (valor_expresion -> number .)
+    resta           reduce using rule 35 (valor_expresion -> number .)
+    multiplicacion  reduce using rule 35 (valor_expresion -> number .)
+    division        reduce using rule 35 (valor_expresion -> number .)
+    modulo          reduce using rule 35 (valor_expresion -> number .)
+    mayor           reduce using rule 35 (valor_expresion -> number .)
+    menor           reduce using rule 35 (valor_expresion -> number .)
+    mayor_igual     reduce using rule 35 (valor_expresion -> number .)
+    menor_igual     reduce using rule 35 (valor_expresion -> number .)
+    igual           reduce using rule 35 (valor_expresion -> number .)
+    diferente       reduce using rule 35 (valor_expresion -> number .)
+    or              reduce using rule 35 (valor_expresion -> number .)
+    and             reduce using rule 35 (valor_expresion -> number .)
+    punto_coma      reduce using rule 35 (valor_expresion -> number .)
+    parentesis_der  reduce using rule 35 (valor_expresion -> number .)
+
+
+state 39
+
+    (16) condicion -> if parentesis_izq expresion . parentesis_der llave_izq bloque llave_der
+    (17) condicion -> if parentesis_izq expresion . parentesis_der llave_izq bloque llave_der else llave_izq bloque llave_der
+    (19) expresion -> expresion . suma valor_expresion
+    (20) expresion -> expresion . resta valor_expresion
+    (21) expresion -> expresion . multiplicacion valor_expresion
+    (22) expresion -> expresion . division valor_expresion
+    (23) expresion -> expresion . modulo valor_expresion
+    (24) expresion -> expresion . mayor valor_expresion
+    (25) expresion -> expresion . menor valor_expresion
+    (26) expresion -> expresion . mayor_igual valor_expresion
+    (27) expresion -> expresion . menor_igual valor_expresion
+    (28) expresion -> expresion . igual valor_expresion
+    (29) expresion -> expresion . diferente valor_expresion
+    (30) expresion -> expresion . or valor_expresion
+    (31) expresion -> expresion . and valor_expresion
+
+    parentesis_der  shift and go to state 57
+    suma            shift and go to state 43
+    resta           shift and go to state 44
+    multiplicacion  shift and go to state 45
+    division        shift and go to state 46
+    modulo          shift and go to state 47
+    mayor           shift and go to state 48
+    menor           shift and go to state 49
+    mayor_igual     shift and go to state 50
+    menor_igual     shift and go to state 51
+    igual           shift and go to state 52
+    diferente       shift and go to state 53
+    or              shift and go to state 54
+    and             shift and go to state 55
+
+
+state 40
+
+    (18) ciclo -> while parentesis_izq expresion . parentesis_der llave_izq bloque llave_der
+    (19) expresion -> expresion . suma valor_expresion
+    (20) expresion -> expresion . resta valor_expresion
+    (21) expresion -> expresion . multiplicacion valor_expresion
+    (22) expresion -> expresion . division valor_expresion
+    (23) expresion -> expresion . modulo valor_expresion
+    (24) expresion -> expresion . mayor valor_expresion
+    (25) expresion -> expresion . menor valor_expresion
+    (26) expresion -> expresion . mayor_igual valor_expresion
+    (27) expresion -> expresion . menor_igual valor_expresion
+    (28) expresion -> expresion . igual valor_expresion
+    (29) expresion -> expresion . diferente valor_expresion
+    (30) expresion -> expresion . or valor_expresion
+    (31) expresion -> expresion . and valor_expresion
+
+    parentesis_der  shift and go to state 58
+    suma            shift and go to state 43
+    resta           shift and go to state 44
+    multiplicacion  shift and go to state 45
+    division        shift and go to state 46
+    modulo          shift and go to state 47
+    mayor           shift and go to state 48
+    menor           shift and go to state 49
+    mayor_igual     shift and go to state 50
+    menor_igual     shift and go to state 51
+    igual           shift and go to state 52
+    diferente       shift and go to state 53
+    or              shift and go to state 54
+    and             shift and go to state 55
+
+
+state 41
+
+    (11) escritura_cadena -> puts parentesis_izq cadena . parentesis_der punto_coma
+
+    parentesis_der  shift and go to state 59
+
+
+state 42
+
+    (12) escritura_entero -> putw parentesis_izq expresion . parentesis_der punto_coma
+    (19) expresion -> expresion . suma valor_expresion
+    (20) expresion -> expresion . resta valor_expresion
+    (21) expresion -> expresion . multiplicacion valor_expresion
+    (22) expresion -> expresion . division valor_expresion
+    (23) expresion -> expresion . modulo valor_expresion
+    (24) expresion -> expresion . mayor valor_expresion
+    (25) expresion -> expresion . menor valor_expresion
+    (26) expresion -> expresion . mayor_igual valor_expresion
+    (27) expresion -> expresion . menor_igual valor_expresion
+    (28) expresion -> expresion . igual valor_expresion
+    (29) expresion -> expresion . diferente valor_expresion
+    (30) expresion -> expresion . or valor_expresion
+    (31) expresion -> expresion . and valor_expresion
+
+    parentesis_der  shift and go to state 60
+    suma            shift and go to state 43
+    resta           shift and go to state 44
+    multiplicacion  shift and go to state 45
+    division        shift and go to state 46
+    modulo          shift and go to state 47
+    mayor           shift and go to state 48
+    menor           shift and go to state 49
+    mayor_igual     shift and go to state 50
+    menor_igual     shift and go to state 51
+    igual           shift and go to state 52
+    diferente       shift and go to state 53
+    or              shift and go to state 54
+    and             shift and go to state 55
+
+
+state 43
+
+    (19) expresion -> expresion suma . valor_expresion
+    (34) valor_expresion -> . identificador
+    (35) valor_expresion -> . number
+
+    identificador   shift and go to state 34
+    number          shift and go to state 38
+
+    valor_expresion                shift and go to state 61
+
+state 44
+
+    (20) expresion -> expresion resta . valor_expresion
+    (34) valor_expresion -> . identificador
+    (35) valor_expresion -> . number
+
+    identificador   shift and go to state 34
+    number          shift and go to state 38
+
+    valor_expresion                shift and go to state 62
+
+state 45
+
+    (21) expresion -> expresion multiplicacion . valor_expresion
+    (34) valor_expresion -> . identificador
+    (35) valor_expresion -> . number
+
+    identificador   shift and go to state 34
+    number          shift and go to state 38
+
+    valor_expresion                shift and go to state 63
+
+state 46
+
+    (22) expresion -> expresion division . valor_expresion
+    (34) valor_expresion -> . identificador
+    (35) valor_expresion -> . number
+
+    identificador   shift and go to state 34
+    number          shift and go to state 38
+
+    valor_expresion                shift and go to state 64
+
+state 47
+
+    (23) expresion -> expresion modulo . valor_expresion
+    (34) valor_expresion -> . identificador
+    (35) valor_expresion -> . number
+
+    identificador   shift and go to state 34
+    number          shift and go to state 38
+
+    valor_expresion                shift and go to state 65
+
+state 48
+
+    (24) expresion -> expresion mayor . valor_expresion
+    (34) valor_expresion -> . identificador
+    (35) valor_expresion -> . number
+
+    identificador   shift and go to state 34
+    number          shift and go to state 38
+
+    valor_expresion                shift and go to state 66
+
+state 49
+
+    (25) expresion -> expresion menor . valor_expresion
+    (34) valor_expresion -> . identificador
+    (35) valor_expresion -> . number
+
+    identificador   shift and go to state 34
+    number          shift and go to state 38
+
+    valor_expresion                shift and go to state 67
+
+state 50
+
+    (26) expresion -> expresion mayor_igual . valor_expresion
+    (34) valor_expresion -> . identificador
+    (35) valor_expresion -> . number
+
+    identificador   shift and go to state 34
+    number          shift and go to state 38
+
+    valor_expresion                shift and go to state 68
+
+state 51
+
+    (27) expresion -> expresion menor_igual . valor_expresion
+    (34) valor_expresion -> . identificador
+    (35) valor_expresion -> . number
+
+    identificador   shift and go to state 34
+    number          shift and go to state 38
+
+    valor_expresion                shift and go to state 69
+
+state 52
+
+    (28) expresion -> expresion igual . valor_expresion
+    (34) valor_expresion -> . identificador
+    (35) valor_expresion -> . number
+
+    identificador   shift and go to state 34
+    number          shift and go to state 38
+
+    valor_expresion                shift and go to state 70
+
+state 53
+
+    (29) expresion -> expresion diferente . valor_expresion
+    (34) valor_expresion -> . identificador
+    (35) valor_expresion -> . number
+
+    identificador   shift and go to state 34
+    number          shift and go to state 38
+
+    valor_expresion                shift and go to state 71
+
+state 54
+
+    (30) expresion -> expresion or . valor_expresion
+    (34) valor_expresion -> . identificador
+    (35) valor_expresion -> . number
+
+    identificador   shift and go to state 34
+    number          shift and go to state 38
+
+    valor_expresion                shift and go to state 72
+
+state 55
+
+    (31) expresion -> expresion and . valor_expresion
+    (34) valor_expresion -> . identificador
+    (35) valor_expresion -> . number
+
+    identificador   shift and go to state 34
+    number          shift and go to state 38
+
+    valor_expresion                shift and go to state 73
+
+state 56
+
+    (32) expresion -> parentesis_izq expresion . parentesis_der
+    (19) expresion -> expresion . suma valor_expresion
+    (20) expresion -> expresion . resta valor_expresion
+    (21) expresion -> expresion . multiplicacion valor_expresion
+    (22) expresion -> expresion . division valor_expresion
+    (23) expresion -> expresion . modulo valor_expresion
+    (24) expresion -> expresion . mayor valor_expresion
+    (25) expresion -> expresion . menor valor_expresion
+    (26) expresion -> expresion . mayor_igual valor_expresion
+    (27) expresion -> expresion . menor_igual valor_expresion
+    (28) expresion -> expresion . igual valor_expresion
+    (29) expresion -> expresion . diferente valor_expresion
+    (30) expresion -> expresion . or valor_expresion
+    (31) expresion -> expresion . and valor_expresion
+
+    parentesis_der  shift and go to state 74
+    suma            shift and go to state 43
+    resta           shift and go to state 44
+    multiplicacion  shift and go to state 45
+    division        shift and go to state 46
+    modulo          shift and go to state 47
+    mayor           shift and go to state 48
+    menor           shift and go to state 49
+    mayor_igual     shift and go to state 50
+    menor_igual     shift and go to state 51
+    igual           shift and go to state 52
+    diferente       shift and go to state 53
+    or              shift and go to state 54
+    and             shift and go to state 55
+
+
+state 57
+
+    (16) condicion -> if parentesis_izq expresion parentesis_der . llave_izq bloque llave_der
+    (17) condicion -> if parentesis_izq expresion parentesis_der . llave_izq bloque llave_der else llave_izq bloque llave_der
+
+    llave_izq       shift and go to state 75
+
+
+state 58
+
+    (18) ciclo -> while parentesis_izq expresion parentesis_der . llave_izq bloque llave_der
+
+    llave_izq       shift and go to state 76
+
+
+state 59
+
+    (11) escritura_cadena -> puts parentesis_izq cadena parentesis_der . punto_coma
+
+    punto_coma      shift and go to state 77
+
+
+state 60
+
+    (12) escritura_entero -> putw parentesis_izq expresion parentesis_der . punto_coma
+
+    punto_coma      shift and go to state 78
+
+
+state 61
+
+    (19) expresion -> expresion suma valor_expresion .
+
+    suma            reduce using rule 19 (expresion -> expresion suma valor_expresion .)
+    resta           reduce using rule 19 (expresion -> expresion suma valor_expresion .)
+    multiplicacion  reduce using rule 19 (expresion -> expresion suma valor_expresion .)
+    division        reduce using rule 19 (expresion -> expresion suma valor_expresion .)
+    modulo          reduce using rule 19 (expresion -> expresion suma valor_expresion .)
+    mayor           reduce using rule 19 (expresion -> expresion suma valor_expresion .)
+    menor           reduce using rule 19 (expresion -> expresion suma valor_expresion .)
+    mayor_igual     reduce using rule 19 (expresion -> expresion suma valor_expresion .)
+    menor_igual     reduce using rule 19 (expresion -> expresion suma valor_expresion .)
+    igual           reduce using rule 19 (expresion -> expresion suma valor_expresion .)
+    diferente       reduce using rule 19 (expresion -> expresion suma valor_expresion .)
+    or              reduce using rule 19 (expresion -> expresion suma valor_expresion .)
+    and             reduce using rule 19 (expresion -> expresion suma valor_expresion .)
+    punto_coma      reduce using rule 19 (expresion -> expresion suma valor_expresion .)
+    parentesis_der  reduce using rule 19 (expresion -> expresion suma valor_expresion .)
+
+
+state 62
+
+    (20) expresion -> expresion resta valor_expresion .
+
+    suma            reduce using rule 20 (expresion -> expresion resta valor_expresion .)
+    resta           reduce using rule 20 (expresion -> expresion resta valor_expresion .)
+    multiplicacion  reduce using rule 20 (expresion -> expresion resta valor_expresion .)
+    division        reduce using rule 20 (expresion -> expresion resta valor_expresion .)
+    modulo          reduce using rule 20 (expresion -> expresion resta valor_expresion .)
+    mayor           reduce using rule 20 (expresion -> expresion resta valor_expresion .)
+    menor           reduce using rule 20 (expresion -> expresion resta valor_expresion .)
+    mayor_igual     reduce using rule 20 (expresion -> expresion resta valor_expresion .)
+    menor_igual     reduce using rule 20 (expresion -> expresion resta valor_expresion .)
+    igual           reduce using rule 20 (expresion -> expresion resta valor_expresion .)
+    diferente       reduce using rule 20 (expresion -> expresion resta valor_expresion .)
+    or              reduce using rule 20 (expresion -> expresion resta valor_expresion .)
+    and             reduce using rule 20 (expresion -> expresion resta valor_expresion .)
+    punto_coma      reduce using rule 20 (expresion -> expresion resta valor_expresion .)
+    parentesis_der  reduce using rule 20 (expresion -> expresion resta valor_expresion .)
+
+
+state 63
+
+    (21) expresion -> expresion multiplicacion valor_expresion .
+
+    suma            reduce using rule 21 (expresion -> expresion multiplicacion valor_expresion .)
+    resta           reduce using rule 21 (expresion -> expresion multiplicacion valor_expresion .)
+    multiplicacion  reduce using rule 21 (expresion -> expresion multiplicacion valor_expresion .)
+    division        reduce using rule 21 (expresion -> expresion multiplicacion valor_expresion .)
+    modulo          reduce using rule 21 (expresion -> expresion multiplicacion valor_expresion .)
+    mayor           reduce using rule 21 (expresion -> expresion multiplicacion valor_expresion .)
+    menor           reduce using rule 21 (expresion -> expresion multiplicacion valor_expresion .)
+    mayor_igual     reduce using rule 21 (expresion -> expresion multiplicacion valor_expresion .)
+    menor_igual     reduce using rule 21 (expresion -> expresion multiplicacion valor_expresion .)
+    igual           reduce using rule 21 (expresion -> expresion multiplicacion valor_expresion .)
+    diferente       reduce using rule 21 (expresion -> expresion multiplicacion valor_expresion .)
+    or              reduce using rule 21 (expresion -> expresion multiplicacion valor_expresion .)
+    and             reduce using rule 21 (expresion -> expresion multiplicacion valor_expresion .)
+    punto_coma      reduce using rule 21 (expresion -> expresion multiplicacion valor_expresion .)
+    parentesis_der  reduce using rule 21 (expresion -> expresion multiplicacion valor_expresion .)
+
+
+state 64
+
+    (22) expresion -> expresion division valor_expresion .
+
+    suma            reduce using rule 22 (expresion -> expresion division valor_expresion .)
+    resta           reduce using rule 22 (expresion -> expresion division valor_expresion .)
+    multiplicacion  reduce using rule 22 (expresion -> expresion division valor_expresion .)
+    division        reduce using rule 22 (expresion -> expresion division valor_expresion .)
+    modulo          reduce using rule 22 (expresion -> expresion division valor_expresion .)
+    mayor           reduce using rule 22 (expresion -> expresion division valor_expresion .)
+    menor           reduce using rule 22 (expresion -> expresion division valor_expresion .)
+    mayor_igual     reduce using rule 22 (expresion -> expresion division valor_expresion .)
+    menor_igual     reduce using rule 22 (expresion -> expresion division valor_expresion .)
+    igual           reduce using rule 22 (expresion -> expresion division valor_expresion .)
+    diferente       reduce using rule 22 (expresion -> expresion division valor_expresion .)
+    or              reduce using rule 22 (expresion -> expresion division valor_expresion .)
+    and             reduce using rule 22 (expresion -> expresion division valor_expresion .)
+    punto_coma      reduce using rule 22 (expresion -> expresion division valor_expresion .)
+    parentesis_der  reduce using rule 22 (expresion -> expresion division valor_expresion .)
+
+
+state 65
+
+    (23) expresion -> expresion modulo valor_expresion .
+
+    suma            reduce using rule 23 (expresion -> expresion modulo valor_expresion .)
+    resta           reduce using rule 23 (expresion -> expresion modulo valor_expresion .)
+    multiplicacion  reduce using rule 23 (expresion -> expresion modulo valor_expresion .)
+    division        reduce using rule 23 (expresion -> expresion modulo valor_expresion .)
+    modulo          reduce using rule 23 (expresion -> expresion modulo valor_expresion .)
+    mayor           reduce using rule 23 (expresion -> expresion modulo valor_expresion .)
+    menor           reduce using rule 23 (expresion -> expresion modulo valor_expresion .)
+    mayor_igual     reduce using rule 23 (expresion -> expresion modulo valor_expresion .)
+    menor_igual     reduce using rule 23 (expresion -> expresion modulo valor_expresion .)
+    igual           reduce using rule 23 (expresion -> expresion modulo valor_expresion .)
+    diferente       reduce using rule 23 (expresion -> expresion modulo valor_expresion .)
+    or              reduce using rule 23 (expresion -> expresion modulo valor_expresion .)
+    and             reduce using rule 23 (expresion -> expresion modulo valor_expresion .)
+    punto_coma      reduce using rule 23 (expresion -> expresion modulo valor_expresion .)
+    parentesis_der  reduce using rule 23 (expresion -> expresion modulo valor_expresion .)
+
+
+state 66
+
+    (24) expresion -> expresion mayor valor_expresion .
+
+    suma            reduce using rule 24 (expresion -> expresion mayor valor_expresion .)
+    resta           reduce using rule 24 (expresion -> expresion mayor valor_expresion .)
+    multiplicacion  reduce using rule 24 (expresion -> expresion mayor valor_expresion .)
+    division        reduce using rule 24 (expresion -> expresion mayor valor_expresion .)
+    modulo          reduce using rule 24 (expresion -> expresion mayor valor_expresion .)
+    mayor           reduce using rule 24 (expresion -> expresion mayor valor_expresion .)
+    menor           reduce using rule 24 (expresion -> expresion mayor valor_expresion .)
+    mayor_igual     reduce using rule 24 (expresion -> expresion mayor valor_expresion .)
+    menor_igual     reduce using rule 24 (expresion -> expresion mayor valor_expresion .)
+    igual           reduce using rule 24 (expresion -> expresion mayor valor_expresion .)
+    diferente       reduce using rule 24 (expresion -> expresion mayor valor_expresion .)
+    or              reduce using rule 24 (expresion -> expresion mayor valor_expresion .)
+    and             reduce using rule 24 (expresion -> expresion mayor valor_expresion .)
+    punto_coma      reduce using rule 24 (expresion -> expresion mayor valor_expresion .)
+    parentesis_der  reduce using rule 24 (expresion -> expresion mayor valor_expresion .)
+
+
+state 67
+
+    (25) expresion -> expresion menor valor_expresion .
+
+    suma            reduce using rule 25 (expresion -> expresion menor valor_expresion .)
+    resta           reduce using rule 25 (expresion -> expresion menor valor_expresion .)
+    multiplicacion  reduce using rule 25 (expresion -> expresion menor valor_expresion .)
+    division        reduce using rule 25 (expresion -> expresion menor valor_expresion .)
+    modulo          reduce using rule 25 (expresion -> expresion menor valor_expresion .)
+    mayor           reduce using rule 25 (expresion -> expresion menor valor_expresion .)
+    menor           reduce using rule 25 (expresion -> expresion menor valor_expresion .)
+    mayor_igual     reduce using rule 25 (expresion -> expresion menor valor_expresion .)
+    menor_igual     reduce using rule 25 (expresion -> expresion menor valor_expresion .)
+    igual           reduce using rule 25 (expresion -> expresion menor valor_expresion .)
+    diferente       reduce using rule 25 (expresion -> expresion menor valor_expresion .)
+    or              reduce using rule 25 (expresion -> expresion menor valor_expresion .)
+    and             reduce using rule 25 (expresion -> expresion menor valor_expresion .)
+    punto_coma      reduce using rule 25 (expresion -> expresion menor valor_expresion .)
+    parentesis_der  reduce using rule 25 (expresion -> expresion menor valor_expresion .)
+
+
+state 68
+
+    (26) expresion -> expresion mayor_igual valor_expresion .
+
+    suma            reduce using rule 26 (expresion -> expresion mayor_igual valor_expresion .)
+    resta           reduce using rule 26 (expresion -> expresion mayor_igual valor_expresion .)
+    multiplicacion  reduce using rule 26 (expresion -> expresion mayor_igual valor_expresion .)
+    division        reduce using rule 26 (expresion -> expresion mayor_igual valor_expresion .)
+    modulo          reduce using rule 26 (expresion -> expresion mayor_igual valor_expresion .)
+    mayor           reduce using rule 26 (expresion -> expresion mayor_igual valor_expresion .)
+    menor           reduce using rule 26 (expresion -> expresion mayor_igual valor_expresion .)
+    mayor_igual     reduce using rule 26 (expresion -> expresion mayor_igual valor_expresion .)
+    menor_igual     reduce using rule 26 (expresion -> expresion mayor_igual valor_expresion .)
+    igual           reduce using rule 26 (expresion -> expresion mayor_igual valor_expresion .)
+    diferente       reduce using rule 26 (expresion -> expresion mayor_igual valor_expresion .)
+    or              reduce using rule 26 (expresion -> expresion mayor_igual valor_expresion .)
+    and             reduce using rule 26 (expresion -> expresion mayor_igual valor_expresion .)
+    punto_coma      reduce using rule 26 (expresion -> expresion mayor_igual valor_expresion .)
+    parentesis_der  reduce using rule 26 (expresion -> expresion mayor_igual valor_expresion .)
+
+
+state 69
+
+    (27) expresion -> expresion menor_igual valor_expresion .
+
+    suma            reduce using rule 27 (expresion -> expresion menor_igual valor_expresion .)
+    resta           reduce using rule 27 (expresion -> expresion menor_igual valor_expresion .)
+    multiplicacion  reduce using rule 27 (expresion -> expresion menor_igual valor_expresion .)
+    division        reduce using rule 27 (expresion -> expresion menor_igual valor_expresion .)
+    modulo          reduce using rule 27 (expresion -> expresion menor_igual valor_expresion .)
+    mayor           reduce using rule 27 (expresion -> expresion menor_igual valor_expresion .)
+    menor           reduce using rule 27 (expresion -> expresion menor_igual valor_expresion .)
+    mayor_igual     reduce using rule 27 (expresion -> expresion menor_igual valor_expresion .)
+    menor_igual     reduce using rule 27 (expresion -> expresion menor_igual valor_expresion .)
+    igual           reduce using rule 27 (expresion -> expresion menor_igual valor_expresion .)
+    diferente       reduce using rule 27 (expresion -> expresion menor_igual valor_expresion .)
+    or              reduce using rule 27 (expresion -> expresion menor_igual valor_expresion .)
+    and             reduce using rule 27 (expresion -> expresion menor_igual valor_expresion .)
+    punto_coma      reduce using rule 27 (expresion -> expresion menor_igual valor_expresion .)
+    parentesis_der  reduce using rule 27 (expresion -> expresion menor_igual valor_expresion .)
+
+
+state 70
+
+    (28) expresion -> expresion igual valor_expresion .
+
+    suma            reduce using rule 28 (expresion -> expresion igual valor_expresion .)
+    resta           reduce using rule 28 (expresion -> expresion igual valor_expresion .)
+    multiplicacion  reduce using rule 28 (expresion -> expresion igual valor_expresion .)
+    division        reduce using rule 28 (expresion -> expresion igual valor_expresion .)
+    modulo          reduce using rule 28 (expresion -> expresion igual valor_expresion .)
+    mayor           reduce using rule 28 (expresion -> expresion igual valor_expresion .)
+    menor           reduce using rule 28 (expresion -> expresion igual valor_expresion .)
+    mayor_igual     reduce using rule 28 (expresion -> expresion igual valor_expresion .)
+    menor_igual     reduce using rule 28 (expresion -> expresion igual valor_expresion .)
+    igual           reduce using rule 28 (expresion -> expresion igual valor_expresion .)
+    diferente       reduce using rule 28 (expresion -> expresion igual valor_expresion .)
+    or              reduce using rule 28 (expresion -> expresion igual valor_expresion .)
+    and             reduce using rule 28 (expresion -> expresion igual valor_expresion .)
+    punto_coma      reduce using rule 28 (expresion -> expresion igual valor_expresion .)
+    parentesis_der  reduce using rule 28 (expresion -> expresion igual valor_expresion .)
+
+
+state 71
+
+    (29) expresion -> expresion diferente valor_expresion .
+
+    suma            reduce using rule 29 (expresion -> expresion diferente valor_expresion .)
+    resta           reduce using rule 29 (expresion -> expresion diferente valor_expresion .)
+    multiplicacion  reduce using rule 29 (expresion -> expresion diferente valor_expresion .)
+    division        reduce using rule 29 (expresion -> expresion diferente valor_expresion .)
+    modulo          reduce using rule 29 (expresion -> expresion diferente valor_expresion .)
+    mayor           reduce using rule 29 (expresion -> expresion diferente valor_expresion .)
+    menor           reduce using rule 29 (expresion -> expresion diferente valor_expresion .)
+    mayor_igual     reduce using rule 29 (expresion -> expresion diferente valor_expresion .)
+    menor_igual     reduce using rule 29 (expresion -> expresion diferente valor_expresion .)
+    igual           reduce using rule 29 (expresion -> expresion diferente valor_expresion .)
+    diferente       reduce using rule 29 (expresion -> expresion diferente valor_expresion .)
+    or              reduce using rule 29 (expresion -> expresion diferente valor_expresion .)
+    and             reduce using rule 29 (expresion -> expresion diferente valor_expresion .)
+    punto_coma      reduce using rule 29 (expresion -> expresion diferente valor_expresion .)
+    parentesis_der  reduce using rule 29 (expresion -> expresion diferente valor_expresion .)
+
+
+state 72
+
+    (30) expresion -> expresion or valor_expresion .
+
+    suma            reduce using rule 30 (expresion -> expresion or valor_expresion .)
+    resta           reduce using rule 30 (expresion -> expresion or valor_expresion .)
+    multiplicacion  reduce using rule 30 (expresion -> expresion or valor_expresion .)
+    division        reduce using rule 30 (expresion -> expresion or valor_expresion .)
+    modulo          reduce using rule 30 (expresion -> expresion or valor_expresion .)
+    mayor           reduce using rule 30 (expresion -> expresion or valor_expresion .)
+    menor           reduce using rule 30 (expresion -> expresion or valor_expresion .)
+    mayor_igual     reduce using rule 30 (expresion -> expresion or valor_expresion .)
+    menor_igual     reduce using rule 30 (expresion -> expresion or valor_expresion .)
+    igual           reduce using rule 30 (expresion -> expresion or valor_expresion .)
+    diferente       reduce using rule 30 (expresion -> expresion or valor_expresion .)
+    or              reduce using rule 30 (expresion -> expresion or valor_expresion .)
+    and             reduce using rule 30 (expresion -> expresion or valor_expresion .)
+    punto_coma      reduce using rule 30 (expresion -> expresion or valor_expresion .)
+    parentesis_der  reduce using rule 30 (expresion -> expresion or valor_expresion .)
+
+
+state 73
+
+    (31) expresion -> expresion and valor_expresion .
+
+    suma            reduce using rule 31 (expresion -> expresion and valor_expresion .)
+    resta           reduce using rule 31 (expresion -> expresion and valor_expresion .)
+    multiplicacion  reduce using rule 31 (expresion -> expresion and valor_expresion .)
+    division        reduce using rule 31 (expresion -> expresion and valor_expresion .)
+    modulo          reduce using rule 31 (expresion -> expresion and valor_expresion .)
+    mayor           reduce using rule 31 (expresion -> expresion and valor_expresion .)
+    menor           reduce using rule 31 (expresion -> expresion and valor_expresion .)
+    mayor_igual     reduce using rule 31 (expresion -> expresion and valor_expresion .)
+    menor_igual     reduce using rule 31 (expresion -> expresion and valor_expresion .)
+    igual           reduce using rule 31 (expresion -> expresion and valor_expresion .)
+    diferente       reduce using rule 31 (expresion -> expresion and valor_expresion .)
+    or              reduce using rule 31 (expresion -> expresion and valor_expresion .)
+    and             reduce using rule 31 (expresion -> expresion and valor_expresion .)
+    punto_coma      reduce using rule 31 (expresion -> expresion and valor_expresion .)
+    parentesis_der  reduce using rule 31 (expresion -> expresion and valor_expresion .)
+
+
+state 74
+
+    (32) expresion -> parentesis_izq expresion parentesis_der .
+
+    suma            reduce using rule 32 (expresion -> parentesis_izq expresion parentesis_der .)
+    resta           reduce using rule 32 (expresion -> parentesis_izq expresion parentesis_der .)
+    multiplicacion  reduce using rule 32 (expresion -> parentesis_izq expresion parentesis_der .)
+    division        reduce using rule 32 (expresion -> parentesis_izq expresion parentesis_der .)
+    modulo          reduce using rule 32 (expresion -> parentesis_izq expresion parentesis_der .)
+    mayor           reduce using rule 32 (expresion -> parentesis_izq expresion parentesis_der .)
+    menor           reduce using rule 32 (expresion -> parentesis_izq expresion parentesis_der .)
+    mayor_igual     reduce using rule 32 (expresion -> parentesis_izq expresion parentesis_der .)
+    menor_igual     reduce using rule 32 (expresion -> parentesis_izq expresion parentesis_der .)
+    igual           reduce using rule 32 (expresion -> parentesis_izq expresion parentesis_der .)
+    diferente       reduce using rule 32 (expresion -> parentesis_izq expresion parentesis_der .)
+    or              reduce using rule 32 (expresion -> parentesis_izq expresion parentesis_der .)
+    and             reduce using rule 32 (expresion -> parentesis_izq expresion parentesis_der .)
+    punto_coma      reduce using rule 32 (expresion -> parentesis_izq expresion parentesis_der .)
+    parentesis_der  reduce using rule 32 (expresion -> parentesis_izq expresion parentesis_der .)
+
+
+state 75
+
+    (16) condicion -> if parentesis_izq expresion parentesis_der llave_izq . bloque llave_der
+    (17) condicion -> if parentesis_izq expresion parentesis_der llave_izq . bloque llave_der else llave_izq bloque llave_der
+    (4) bloque -> . sentencia bloque
+    (5) bloque -> . sentencia
+    (6) sentencia -> . expresion_asignacion punto_coma
+    (7) sentencia -> . condicion
+    (8) sentencia -> . ciclo
+    (9) sentencia -> . escritura
+    (10) sentencia -> . comentario_multilinea
+    (15) expresion_asignacion -> . identificador asignacion expresion
+    (16) condicion -> . if parentesis_izq expresion parentesis_der llave_izq bloque llave_der
+    (17) condicion -> . if parentesis_izq expresion parentesis_der llave_izq bloque llave_der else llave_izq bloque llave_der
+    (18) ciclo -> . while parentesis_izq expresion parentesis_der llave_izq bloque llave_der
+    (13) escritura -> . escritura_cadena
+    (14) escritura -> . escritura_entero
+    (11) escritura_cadena -> . puts parentesis_izq cadena parentesis_der punto_coma
+    (12) escritura_entero -> . putw parentesis_izq expresion parentesis_der punto_coma
+
+    comentario_multilinea shift and go to state 18
+    identificador   shift and go to state 19
+    if              shift and go to state 20
+    while           shift and go to state 21
+    puts            shift and go to state 24
+    putw            shift and go to state 25
+
+    bloque                         shift and go to state 79
+    sentencia                      shift and go to state 13
+    expresion_asignacion           shift and go to state 14
+    condicion                      shift and go to state 15
+    ciclo                          shift and go to state 16
+    escritura                      shift and go to state 17
+    escritura_cadena               shift and go to state 22
+    escritura_entero               shift and go to state 23
+
+state 76
+
+    (18) ciclo -> while parentesis_izq expresion parentesis_der llave_izq . bloque llave_der
+    (4) bloque -> . sentencia bloque
+    (5) bloque -> . sentencia
+    (6) sentencia -> . expresion_asignacion punto_coma
+    (7) sentencia -> . condicion
+    (8) sentencia -> . ciclo
+    (9) sentencia -> . escritura
+    (10) sentencia -> . comentario_multilinea
+    (15) expresion_asignacion -> . identificador asignacion expresion
+    (16) condicion -> . if parentesis_izq expresion parentesis_der llave_izq bloque llave_der
+    (17) condicion -> . if parentesis_izq expresion parentesis_der llave_izq bloque llave_der else llave_izq bloque llave_der
+    (18) ciclo -> . while parentesis_izq expresion parentesis_der llave_izq bloque llave_der
+    (13) escritura -> . escritura_cadena
+    (14) escritura -> . escritura_entero
+    (11) escritura_cadena -> . puts parentesis_izq cadena parentesis_der punto_coma
+    (12) escritura_entero -> . putw parentesis_izq expresion parentesis_der punto_coma
+
+    comentario_multilinea shift and go to state 18
+    identificador   shift and go to state 19
+    if              shift and go to state 20
+    while           shift and go to state 21
+    puts            shift and go to state 24
+    putw            shift and go to state 25
+
+    bloque                         shift and go to state 80
+    sentencia                      shift and go to state 13
+    expresion_asignacion           shift and go to state 14
+    condicion                      shift and go to state 15
+    ciclo                          shift and go to state 16
+    escritura                      shift and go to state 17
+    escritura_cadena               shift and go to state 22
+    escritura_entero               shift and go to state 23
+
+state 77
+
+    (11) escritura_cadena -> puts parentesis_izq cadena parentesis_der punto_coma .
+
+    comentario_multilinea reduce using rule 11 (escritura_cadena -> puts parentesis_izq cadena parentesis_der punto_coma .)
+    identificador   reduce using rule 11 (escritura_cadena -> puts parentesis_izq cadena parentesis_der punto_coma .)
+    if              reduce using rule 11 (escritura_cadena -> puts parentesis_izq cadena parentesis_der punto_coma .)
+    while           reduce using rule 11 (escritura_cadena -> puts parentesis_izq cadena parentesis_der punto_coma .)
+    puts            reduce using rule 11 (escritura_cadena -> puts parentesis_izq cadena parentesis_der punto_coma .)
+    putw            reduce using rule 11 (escritura_cadena -> puts parentesis_izq cadena parentesis_der punto_coma .)
+    llave_der       reduce using rule 11 (escritura_cadena -> puts parentesis_izq cadena parentesis_der punto_coma .)
+
+
+state 78
+
+    (12) escritura_entero -> putw parentesis_izq expresion parentesis_der punto_coma .
+
+    comentario_multilinea reduce using rule 12 (escritura_entero -> putw parentesis_izq expresion parentesis_der punto_coma .)
+    identificador   reduce using rule 12 (escritura_entero -> putw parentesis_izq expresion parentesis_der punto_coma .)
+    if              reduce using rule 12 (escritura_entero -> putw parentesis_izq expresion parentesis_der punto_coma .)
+    while           reduce using rule 12 (escritura_entero -> putw parentesis_izq expresion parentesis_der punto_coma .)
+    puts            reduce using rule 12 (escritura_entero -> putw parentesis_izq expresion parentesis_der punto_coma .)
+    putw            reduce using rule 12 (escritura_entero -> putw parentesis_izq expresion parentesis_der punto_coma .)
+    llave_der       reduce using rule 12 (escritura_entero -> putw parentesis_izq expresion parentesis_der punto_coma .)
+
+
+state 79
+
+    (16) condicion -> if parentesis_izq expresion parentesis_der llave_izq bloque . llave_der
+    (17) condicion -> if parentesis_izq expresion parentesis_der llave_izq bloque . llave_der else llave_izq bloque llave_der
+
+    llave_der       shift and go to state 81
+
+
+state 80
+
+    (18) ciclo -> while parentesis_izq expresion parentesis_der llave_izq bloque . llave_der
+
+    llave_der       shift and go to state 82
+
+
+state 81
+
+    (16) condicion -> if parentesis_izq expresion parentesis_der llave_izq bloque llave_der .
+    (17) condicion -> if parentesis_izq expresion parentesis_der llave_izq bloque llave_der . else llave_izq bloque llave_der
+
+    comentario_multilinea reduce using rule 16 (condicion -> if parentesis_izq expresion parentesis_der llave_izq bloque llave_der .)
+    identificador   reduce using rule 16 (condicion -> if parentesis_izq expresion parentesis_der llave_izq bloque llave_der .)
+    if              reduce using rule 16 (condicion -> if parentesis_izq expresion parentesis_der llave_izq bloque llave_der .)
+    while           reduce using rule 16 (condicion -> if parentesis_izq expresion parentesis_der llave_izq bloque llave_der .)
+    puts            reduce using rule 16 (condicion -> if parentesis_izq expresion parentesis_der llave_izq bloque llave_der .)
+    putw            reduce using rule 16 (condicion -> if parentesis_izq expresion parentesis_der llave_izq bloque llave_der .)
+    llave_der       reduce using rule 16 (condicion -> if parentesis_izq expresion parentesis_der llave_izq bloque llave_der .)
+    else            shift and go to state 83
+
+
+state 82
+
+    (18) ciclo -> while parentesis_izq expresion parentesis_der llave_izq bloque llave_der .
+
+    comentario_multilinea reduce using rule 18 (ciclo -> while parentesis_izq expresion parentesis_der llave_izq bloque llave_der .)
+    identificador   reduce using rule 18 (ciclo -> while parentesis_izq expresion parentesis_der llave_izq bloque llave_der .)
+    if              reduce using rule 18 (ciclo -> while parentesis_izq expresion parentesis_der llave_izq bloque llave_der .)
+    while           reduce using rule 18 (ciclo -> while parentesis_izq expresion parentesis_der llave_izq bloque llave_der .)
+    puts            reduce using rule 18 (ciclo -> while parentesis_izq expresion parentesis_der llave_izq bloque llave_der .)
+    putw            reduce using rule 18 (ciclo -> while parentesis_izq expresion parentesis_der llave_izq bloque llave_der .)
+    llave_der       reduce using rule 18 (ciclo -> while parentesis_izq expresion parentesis_der llave_izq bloque llave_der .)
+
+
+state 83
+
+    (17) condicion -> if parentesis_izq expresion parentesis_der llave_izq bloque llave_der else . llave_izq bloque llave_der
+
+    llave_izq       shift and go to state 84
+
+
+state 84
+
+    (17) condicion -> if parentesis_izq expresion parentesis_der llave_izq bloque llave_der else llave_izq . bloque llave_der
+    (4) bloque -> . sentencia bloque
+    (5) bloque -> . sentencia
+    (6) sentencia -> . expresion_asignacion punto_coma
+    (7) sentencia -> . condicion
+    (8) sentencia -> . ciclo
+    (9) sentencia -> . escritura
+    (10) sentencia -> . comentario_multilinea
+    (15) expresion_asignacion -> . identificador asignacion expresion
+    (16) condicion -> . if parentesis_izq expresion parentesis_der llave_izq bloque llave_der
+    (17) condicion -> . if parentesis_izq expresion parentesis_der llave_izq bloque llave_der else llave_izq bloque llave_der
+    (18) ciclo -> . while parentesis_izq expresion parentesis_der llave_izq bloque llave_der
+    (13) escritura -> . escritura_cadena
+    (14) escritura -> . escritura_entero
+    (11) escritura_cadena -> . puts parentesis_izq cadena parentesis_der punto_coma
+    (12) escritura_entero -> . putw parentesis_izq expresion parentesis_der punto_coma
+
+    comentario_multilinea shift and go to state 18
+    identificador   shift and go to state 19
+    if              shift and go to state 20
+    while           shift and go to state 21
+    puts            shift and go to state 24
+    putw            shift and go to state 25
+
+    bloque                         shift and go to state 85
+    sentencia                      shift and go to state 13
+    expresion_asignacion           shift and go to state 14
+    condicion                      shift and go to state 15
+    ciclo                          shift and go to state 16
+    escritura                      shift and go to state 17
+    escritura_cadena               shift and go to state 22
+    escritura_entero               shift and go to state 23
+
+state 85
+
+    (17) condicion -> if parentesis_izq expresion parentesis_der llave_izq bloque llave_der else llave_izq bloque . llave_der
+
+    llave_der       shift and go to state 86
+
+
+state 86
+
+    (17) condicion -> if parentesis_izq expresion parentesis_der llave_izq bloque llave_der else llave_izq bloque llave_der .
+
+    comentario_multilinea reduce using rule 17 (condicion -> if parentesis_izq expresion parentesis_der llave_izq bloque llave_der else llave_izq bloque llave_der .)
+    identificador   reduce using rule 17 (condicion -> if parentesis_izq expresion parentesis_der llave_izq bloque llave_der else llave_izq bloque llave_der .)
+    if              reduce using rule 17 (condicion -> if parentesis_izq expresion parentesis_der llave_izq bloque llave_der else llave_izq bloque llave_der .)
+    while           reduce using rule 17 (condicion -> if parentesis_izq expresion parentesis_der llave_izq bloque llave_der else llave_izq bloque llave_der .)
+    puts            reduce using rule 17 (condicion -> if parentesis_izq expresion parentesis_der llave_izq bloque llave_der else llave_izq bloque llave_der .)
+    putw            reduce using rule 17 (condicion -> if parentesis_izq expresion parentesis_der llave_izq bloque llave_der else llave_izq bloque llave_der .)
+    llave_der       reduce using rule 17 (condicion -> if parentesis_izq expresion parentesis_der llave_izq bloque llave_der else llave_izq bloque llave_der .)
+
