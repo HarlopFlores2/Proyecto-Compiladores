@@ -1,12 +1,11 @@
-
 reservadas = {
-    'main' : 'main',
-    'if' : 'if',
-    'else' : 'else',
-    'while' : 'while',
-    'putw' : 'putw',
-    'puts' : 'puts',
-    'int' : 'int'
+    'main': 'main',
+    'if': 'if',
+    'else': 'else',
+    'while': 'while',
+    'putw': 'putw',
+    'puts': 'puts',
+    'int': 'int'
 }
 
 tokens = [
@@ -32,9 +31,7 @@ tokens = [
     'asignacion',
     'identificador',
     'number',
-    'cadena',
-    'comentario_multilinea'
-
+    'cadena'
 ] + list(reservadas.values())
 
 # Tokens
@@ -66,8 +63,8 @@ t_ignore = ' \t\n'
 def t_comentario_multilinea(t):
     r'/\*(.|\n)*?\*/'
     t.lexer.lineno += t.value.count('\n')
-    t.type = 'comentario_multilinea'
-    return t
+    # No se devuelve nada para omitir el comentario en el análisis posterior
+    pass
 
 
 def t_number(t):
@@ -86,9 +83,6 @@ def t_identificador(t):
     t.type = reservadas.get(t.value, 'identificador')
     return t
 
-
-
-
 def t_error(t):
     print("Caracter ilegal '%s'" % t.value[0])
     print("Linea: %d" % t.lexer.lineno)
@@ -98,13 +92,4 @@ def t_error(t):
 import ply.lex as lex
 
 lexer = lex.lex()
-'''
-lexer.input("main() { int a = 5; int b = 10; int c = a + b; puts(c); }")
 
-while True:
-    tok = lexer.token()
-    if not tok:
-        break
-    print(tok)
-
-'''
