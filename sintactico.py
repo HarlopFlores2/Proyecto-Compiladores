@@ -6,14 +6,28 @@ from semantico import *
 
 precedence = (
     ('left', 'suma', 'resta'),
-    ('left', 'multiplicacion', 'division', 'modulo'),
     ('left', 'menor', 'mayor', 'menor_igual', 'mayor_igual', 'igual', 'diferente'),
-    ('left', 'or'),
-    ('left', 'and'),
+    ('left', 'or', 'and'),
+    ('left', 'multiplicacion', 'division', 'modulo'),
     ('right', 'parentesis_izq', 'parentesis_der'),
-    ('left', 'llave_izq', 'llave_der'),
-    ('left', 'coma', 'punto_coma'),
 )
+
+contTemp = 1
+contEtq = 1
+
+def newTemp():
+    global contTemp
+    temp = "t" + str(contTemp)
+    contTemp += 1
+    return temp
+
+def newEtq():
+    global contEtq
+    etq = "L" + str(contEtq)
+    contEtq += 1
+    return etq
+
+c3d = ""
 
 def p_programa(p):
     '''programa : int declaraciones_var main parentesis_izq parentesis_der llave_izq bloque llave_der'''
@@ -87,17 +101,31 @@ def p_expresion(p):
                  | parentesis_izq expresion parentesis_der
                  | identificador
                  | number'''
+    global c3d
     if len(p) == 2:
         if p[1] == 'true':
-            p[0] = Valor(True)
+            tmp = Valor(True).evaluar()
         elif p[1] == 'false':
-            p[0] = Valor(False)
+            tmp = Valor(False).evaluar()
         else:
-            p[0] = Variable(p[1])
+            tmp = p[1]
+        
+        p[0] = [tmp]
+        
     elif p[1] == '(':
-        p[0] = p[2]
+
+        tmp = newTemp() 
+        c3d +=( tmp + ' = ' + '(' + str(p[2][0]) + ')')
+        c3d += '\n'
+        
+        p[0] = [tmp, c3d]
     else:
-        p[0] = Expresion(p[1], p[2], p[3])
+        p[0] = Expresion(p[1][0], p[2], p[3][0])
+
+        tmp = newTemp()
+        c3d += (tmp + ' = ' + str(p[1][0]) + ' ' + str(p[2]) + ' ' + str(p[3][0]))
+        c3d += '\n'
+        p[0] = [tmp, c3d]
 
 
 def p_error(p):
@@ -126,4 +154,6 @@ if __name__ == '__main__':
     f = open(fin, 'r')
     data = f.read()
     print(data)
-    parser.parse(data, debug=1)
+    result = parser.parse(data, debug=1)
+
+print(c3d)

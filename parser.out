@@ -1196,30 +1196,30 @@ state 60
     multiplicacion  reduce using rule 19 (expresion -> expresion multiplicacion expresion .)
     division        reduce using rule 19 (expresion -> expresion multiplicacion expresion .)
     modulo          reduce using rule 19 (expresion -> expresion multiplicacion expresion .)
+    mayor           reduce using rule 19 (expresion -> expresion multiplicacion expresion .)
+    menor           reduce using rule 19 (expresion -> expresion multiplicacion expresion .)
+    mayor_igual     reduce using rule 19 (expresion -> expresion multiplicacion expresion .)
+    menor_igual     reduce using rule 19 (expresion -> expresion multiplicacion expresion .)
+    igual           reduce using rule 19 (expresion -> expresion multiplicacion expresion .)
+    diferente       reduce using rule 19 (expresion -> expresion multiplicacion expresion .)
+    or              reduce using rule 19 (expresion -> expresion multiplicacion expresion .)
+    and             reduce using rule 19 (expresion -> expresion multiplicacion expresion .)
     punto_coma      reduce using rule 19 (expresion -> expresion multiplicacion expresion .)
     parentesis_der  reduce using rule 19 (expresion -> expresion multiplicacion expresion .)
-    mayor           shift and go to state 45
-    menor           shift and go to state 46
-    mayor_igual     shift and go to state 47
-    menor_igual     shift and go to state 48
-    igual           shift and go to state 49
-    diferente       shift and go to state 50
-    or              shift and go to state 51
-    and             shift and go to state 52
 
-  ! mayor           [ reduce using rule 19 (expresion -> expresion multiplicacion expresion .) ]
-  ! menor           [ reduce using rule 19 (expresion -> expresion multiplicacion expresion .) ]
-  ! mayor_igual     [ reduce using rule 19 (expresion -> expresion multiplicacion expresion .) ]
-  ! menor_igual     [ reduce using rule 19 (expresion -> expresion multiplicacion expresion .) ]
-  ! igual           [ reduce using rule 19 (expresion -> expresion multiplicacion expresion .) ]
-  ! diferente       [ reduce using rule 19 (expresion -> expresion multiplicacion expresion .) ]
-  ! or              [ reduce using rule 19 (expresion -> expresion multiplicacion expresion .) ]
-  ! and             [ reduce using rule 19 (expresion -> expresion multiplicacion expresion .) ]
   ! suma            [ shift and go to state 40 ]
   ! resta           [ shift and go to state 41 ]
   ! multiplicacion  [ shift and go to state 42 ]
   ! division        [ shift and go to state 43 ]
   ! modulo          [ shift and go to state 44 ]
+  ! mayor           [ shift and go to state 45 ]
+  ! menor           [ shift and go to state 46 ]
+  ! mayor_igual     [ shift and go to state 47 ]
+  ! menor_igual     [ shift and go to state 48 ]
+  ! igual           [ shift and go to state 49 ]
+  ! diferente       [ shift and go to state 50 ]
+  ! or              [ shift and go to state 51 ]
+  ! and             [ shift and go to state 52 ]
 
 
 state 61
@@ -1244,30 +1244,30 @@ state 61
     multiplicacion  reduce using rule 20 (expresion -> expresion division expresion .)
     division        reduce using rule 20 (expresion -> expresion division expresion .)
     modulo          reduce using rule 20 (expresion -> expresion division expresion .)
+    mayor           reduce using rule 20 (expresion -> expresion division expresion .)
+    menor           reduce using rule 20 (expresion -> expresion division expresion .)
+    mayor_igual     reduce using rule 20 (expresion -> expresion division expresion .)
+    menor_igual     reduce using rule 20 (expresion -> expresion division expresion .)
+    igual           reduce using rule 20 (expresion -> expresion division expresion .)
+    diferente       reduce using rule 20 (expresion -> expresion division expresion .)
+    or              reduce using rule 20 (expresion -> expresion division expresion .)
+    and             reduce using rule 20 (expresion -> expresion division expresion .)
     punto_coma      reduce using rule 20 (expresion -> expresion division expresion .)
     parentesis_der  reduce using rule 20 (expresion -> expresion division expresion .)
-    mayor           shift and go to state 45
-    menor           shift and go to state 46
-    mayor_igual     shift and go to state 47
-    menor_igual     shift and go to state 48
-    igual           shift and go to state 49
-    diferente       shift and go to state 50
-    or              shift and go to state 51
-    and             shift and go to state 52
 
-  ! mayor           [ reduce using rule 20 (expresion -> expresion division expresion .) ]
-  ! menor           [ reduce using rule 20 (expresion -> expresion division expresion .) ]
-  ! mayor_igual     [ reduce using rule 20 (expresion -> expresion division expresion .) ]
-  ! menor_igual     [ reduce using rule 20 (expresion -> expresion division expresion .) ]
-  ! igual           [ reduce using rule 20 (expresion -> expresion division expresion .) ]
-  ! diferente       [ reduce using rule 20 (expresion -> expresion division expresion .) ]
-  ! or              [ reduce using rule 20 (expresion -> expresion division expresion .) ]
-  ! and             [ reduce using rule 20 (expresion -> expresion division expresion .) ]
   ! suma            [ shift and go to state 40 ]
   ! resta           [ shift and go to state 41 ]
   ! multiplicacion  [ shift and go to state 42 ]
   ! division        [ shift and go to state 43 ]
   ! modulo          [ shift and go to state 44 ]
+  ! mayor           [ shift and go to state 45 ]
+  ! menor           [ shift and go to state 46 ]
+  ! mayor_igual     [ shift and go to state 47 ]
+  ! menor_igual     [ shift and go to state 48 ]
+  ! igual           [ shift and go to state 49 ]
+  ! diferente       [ shift and go to state 50 ]
+  ! or              [ shift and go to state 51 ]
+  ! and             [ shift and go to state 52 ]
 
 
 state 62
@@ -1292,30 +1292,30 @@ state 62
     multiplicacion  reduce using rule 21 (expresion -> expresion modulo expresion .)
     division        reduce using rule 21 (expresion -> expresion modulo expresion .)
     modulo          reduce using rule 21 (expresion -> expresion modulo expresion .)
+    mayor           reduce using rule 21 (expresion -> expresion modulo expresion .)
+    menor           reduce using rule 21 (expresion -> expresion modulo expresion .)
+    mayor_igual     reduce using rule 21 (expresion -> expresion modulo expresion .)
+    menor_igual     reduce using rule 21 (expresion -> expresion modulo expresion .)
+    igual           reduce using rule 21 (expresion -> expresion modulo expresion .)
+    diferente       reduce using rule 21 (expresion -> expresion modulo expresion .)
+    or              reduce using rule 21 (expresion -> expresion modulo expresion .)
+    and             reduce using rule 21 (expresion -> expresion modulo expresion .)
     punto_coma      reduce using rule 21 (expresion -> expresion modulo expresion .)
     parentesis_der  reduce using rule 21 (expresion -> expresion modulo expresion .)
-    mayor           shift and go to state 45
-    menor           shift and go to state 46
-    mayor_igual     shift and go to state 47
-    menor_igual     shift and go to state 48
-    igual           shift and go to state 49
-    diferente       shift and go to state 50
-    or              shift and go to state 51
-    and             shift and go to state 52
 
-  ! mayor           [ reduce using rule 21 (expresion -> expresion modulo expresion .) ]
-  ! menor           [ reduce using rule 21 (expresion -> expresion modulo expresion .) ]
-  ! mayor_igual     [ reduce using rule 21 (expresion -> expresion modulo expresion .) ]
-  ! menor_igual     [ reduce using rule 21 (expresion -> expresion modulo expresion .) ]
-  ! igual           [ reduce using rule 21 (expresion -> expresion modulo expresion .) ]
-  ! diferente       [ reduce using rule 21 (expresion -> expresion modulo expresion .) ]
-  ! or              [ reduce using rule 21 (expresion -> expresion modulo expresion .) ]
-  ! and             [ reduce using rule 21 (expresion -> expresion modulo expresion .) ]
   ! suma            [ shift and go to state 40 ]
   ! resta           [ shift and go to state 41 ]
   ! multiplicacion  [ shift and go to state 42 ]
   ! division        [ shift and go to state 43 ]
   ! modulo          [ shift and go to state 44 ]
+  ! mayor           [ shift and go to state 45 ]
+  ! menor           [ shift and go to state 46 ]
+  ! mayor_igual     [ shift and go to state 47 ]
+  ! menor_igual     [ shift and go to state 48 ]
+  ! igual           [ shift and go to state 49 ]
+  ! diferente       [ shift and go to state 50 ]
+  ! or              [ shift and go to state 51 ]
+  ! and             [ shift and go to state 52 ]
 
 
 state 63
@@ -1337,9 +1337,6 @@ state 63
 
     suma            reduce using rule 22 (expresion -> expresion mayor expresion .)
     resta           reduce using rule 22 (expresion -> expresion mayor expresion .)
-    multiplicacion  reduce using rule 22 (expresion -> expresion mayor expresion .)
-    division        reduce using rule 22 (expresion -> expresion mayor expresion .)
-    modulo          reduce using rule 22 (expresion -> expresion mayor expresion .)
     mayor           reduce using rule 22 (expresion -> expresion mayor expresion .)
     menor           reduce using rule 22 (expresion -> expresion mayor expresion .)
     mayor_igual     reduce using rule 22 (expresion -> expresion mayor expresion .)
@@ -1348,16 +1345,19 @@ state 63
     diferente       reduce using rule 22 (expresion -> expresion mayor expresion .)
     punto_coma      reduce using rule 22 (expresion -> expresion mayor expresion .)
     parentesis_der  reduce using rule 22 (expresion -> expresion mayor expresion .)
+    multiplicacion  shift and go to state 42
+    division        shift and go to state 43
+    modulo          shift and go to state 44
     or              shift and go to state 51
     and             shift and go to state 52
 
+  ! multiplicacion  [ reduce using rule 22 (expresion -> expresion mayor expresion .) ]
+  ! division        [ reduce using rule 22 (expresion -> expresion mayor expresion .) ]
+  ! modulo          [ reduce using rule 22 (expresion -> expresion mayor expresion .) ]
   ! or              [ reduce using rule 22 (expresion -> expresion mayor expresion .) ]
   ! and             [ reduce using rule 22 (expresion -> expresion mayor expresion .) ]
   ! suma            [ shift and go to state 40 ]
   ! resta           [ shift and go to state 41 ]
-  ! multiplicacion  [ shift and go to state 42 ]
-  ! division        [ shift and go to state 43 ]
-  ! modulo          [ shift and go to state 44 ]
   ! mayor           [ shift and go to state 45 ]
   ! menor           [ shift and go to state 46 ]
   ! mayor_igual     [ shift and go to state 47 ]
@@ -1385,9 +1385,6 @@ state 64
 
     suma            reduce using rule 23 (expresion -> expresion menor expresion .)
     resta           reduce using rule 23 (expresion -> expresion menor expresion .)
-    multiplicacion  reduce using rule 23 (expresion -> expresion menor expresion .)
-    division        reduce using rule 23 (expresion -> expresion menor expresion .)
-    modulo          reduce using rule 23 (expresion -> expresion menor expresion .)
     mayor           reduce using rule 23 (expresion -> expresion menor expresion .)
     menor           reduce using rule 23 (expresion -> expresion menor expresion .)
     mayor_igual     reduce using rule 23 (expresion -> expresion menor expresion .)
@@ -1396,16 +1393,19 @@ state 64
     diferente       reduce using rule 23 (expresion -> expresion menor expresion .)
     punto_coma      reduce using rule 23 (expresion -> expresion menor expresion .)
     parentesis_der  reduce using rule 23 (expresion -> expresion menor expresion .)
+    multiplicacion  shift and go to state 42
+    division        shift and go to state 43
+    modulo          shift and go to state 44
     or              shift and go to state 51
     and             shift and go to state 52
 
+  ! multiplicacion  [ reduce using rule 23 (expresion -> expresion menor expresion .) ]
+  ! division        [ reduce using rule 23 (expresion -> expresion menor expresion .) ]
+  ! modulo          [ reduce using rule 23 (expresion -> expresion menor expresion .) ]
   ! or              [ reduce using rule 23 (expresion -> expresion menor expresion .) ]
   ! and             [ reduce using rule 23 (expresion -> expresion menor expresion .) ]
   ! suma            [ shift and go to state 40 ]
   ! resta           [ shift and go to state 41 ]
-  ! multiplicacion  [ shift and go to state 42 ]
-  ! division        [ shift and go to state 43 ]
-  ! modulo          [ shift and go to state 44 ]
   ! mayor           [ shift and go to state 45 ]
   ! menor           [ shift and go to state 46 ]
   ! mayor_igual     [ shift and go to state 47 ]
@@ -1433,9 +1433,6 @@ state 65
 
     suma            reduce using rule 24 (expresion -> expresion mayor_igual expresion .)
     resta           reduce using rule 24 (expresion -> expresion mayor_igual expresion .)
-    multiplicacion  reduce using rule 24 (expresion -> expresion mayor_igual expresion .)
-    division        reduce using rule 24 (expresion -> expresion mayor_igual expresion .)
-    modulo          reduce using rule 24 (expresion -> expresion mayor_igual expresion .)
     mayor           reduce using rule 24 (expresion -> expresion mayor_igual expresion .)
     menor           reduce using rule 24 (expresion -> expresion mayor_igual expresion .)
     mayor_igual     reduce using rule 24 (expresion -> expresion mayor_igual expresion .)
@@ -1444,16 +1441,19 @@ state 65
     diferente       reduce using rule 24 (expresion -> expresion mayor_igual expresion .)
     punto_coma      reduce using rule 24 (expresion -> expresion mayor_igual expresion .)
     parentesis_der  reduce using rule 24 (expresion -> expresion mayor_igual expresion .)
+    multiplicacion  shift and go to state 42
+    division        shift and go to state 43
+    modulo          shift and go to state 44
     or              shift and go to state 51
     and             shift and go to state 52
 
+  ! multiplicacion  [ reduce using rule 24 (expresion -> expresion mayor_igual expresion .) ]
+  ! division        [ reduce using rule 24 (expresion -> expresion mayor_igual expresion .) ]
+  ! modulo          [ reduce using rule 24 (expresion -> expresion mayor_igual expresion .) ]
   ! or              [ reduce using rule 24 (expresion -> expresion mayor_igual expresion .) ]
   ! and             [ reduce using rule 24 (expresion -> expresion mayor_igual expresion .) ]
   ! suma            [ shift and go to state 40 ]
   ! resta           [ shift and go to state 41 ]
-  ! multiplicacion  [ shift and go to state 42 ]
-  ! division        [ shift and go to state 43 ]
-  ! modulo          [ shift and go to state 44 ]
   ! mayor           [ shift and go to state 45 ]
   ! menor           [ shift and go to state 46 ]
   ! mayor_igual     [ shift and go to state 47 ]
@@ -1481,9 +1481,6 @@ state 66
 
     suma            reduce using rule 25 (expresion -> expresion menor_igual expresion .)
     resta           reduce using rule 25 (expresion -> expresion menor_igual expresion .)
-    multiplicacion  reduce using rule 25 (expresion -> expresion menor_igual expresion .)
-    division        reduce using rule 25 (expresion -> expresion menor_igual expresion .)
-    modulo          reduce using rule 25 (expresion -> expresion menor_igual expresion .)
     mayor           reduce using rule 25 (expresion -> expresion menor_igual expresion .)
     menor           reduce using rule 25 (expresion -> expresion menor_igual expresion .)
     mayor_igual     reduce using rule 25 (expresion -> expresion menor_igual expresion .)
@@ -1492,16 +1489,19 @@ state 66
     diferente       reduce using rule 25 (expresion -> expresion menor_igual expresion .)
     punto_coma      reduce using rule 25 (expresion -> expresion menor_igual expresion .)
     parentesis_der  reduce using rule 25 (expresion -> expresion menor_igual expresion .)
+    multiplicacion  shift and go to state 42
+    division        shift and go to state 43
+    modulo          shift and go to state 44
     or              shift and go to state 51
     and             shift and go to state 52
 
+  ! multiplicacion  [ reduce using rule 25 (expresion -> expresion menor_igual expresion .) ]
+  ! division        [ reduce using rule 25 (expresion -> expresion menor_igual expresion .) ]
+  ! modulo          [ reduce using rule 25 (expresion -> expresion menor_igual expresion .) ]
   ! or              [ reduce using rule 25 (expresion -> expresion menor_igual expresion .) ]
   ! and             [ reduce using rule 25 (expresion -> expresion menor_igual expresion .) ]
   ! suma            [ shift and go to state 40 ]
   ! resta           [ shift and go to state 41 ]
-  ! multiplicacion  [ shift and go to state 42 ]
-  ! division        [ shift and go to state 43 ]
-  ! modulo          [ shift and go to state 44 ]
   ! mayor           [ shift and go to state 45 ]
   ! menor           [ shift and go to state 46 ]
   ! mayor_igual     [ shift and go to state 47 ]
@@ -1529,9 +1529,6 @@ state 67
 
     suma            reduce using rule 26 (expresion -> expresion igual expresion .)
     resta           reduce using rule 26 (expresion -> expresion igual expresion .)
-    multiplicacion  reduce using rule 26 (expresion -> expresion igual expresion .)
-    division        reduce using rule 26 (expresion -> expresion igual expresion .)
-    modulo          reduce using rule 26 (expresion -> expresion igual expresion .)
     mayor           reduce using rule 26 (expresion -> expresion igual expresion .)
     menor           reduce using rule 26 (expresion -> expresion igual expresion .)
     mayor_igual     reduce using rule 26 (expresion -> expresion igual expresion .)
@@ -1540,16 +1537,19 @@ state 67
     diferente       reduce using rule 26 (expresion -> expresion igual expresion .)
     punto_coma      reduce using rule 26 (expresion -> expresion igual expresion .)
     parentesis_der  reduce using rule 26 (expresion -> expresion igual expresion .)
+    multiplicacion  shift and go to state 42
+    division        shift and go to state 43
+    modulo          shift and go to state 44
     or              shift and go to state 51
     and             shift and go to state 52
 
+  ! multiplicacion  [ reduce using rule 26 (expresion -> expresion igual expresion .) ]
+  ! division        [ reduce using rule 26 (expresion -> expresion igual expresion .) ]
+  ! modulo          [ reduce using rule 26 (expresion -> expresion igual expresion .) ]
   ! or              [ reduce using rule 26 (expresion -> expresion igual expresion .) ]
   ! and             [ reduce using rule 26 (expresion -> expresion igual expresion .) ]
   ! suma            [ shift and go to state 40 ]
   ! resta           [ shift and go to state 41 ]
-  ! multiplicacion  [ shift and go to state 42 ]
-  ! division        [ shift and go to state 43 ]
-  ! modulo          [ shift and go to state 44 ]
   ! mayor           [ shift and go to state 45 ]
   ! menor           [ shift and go to state 46 ]
   ! mayor_igual     [ shift and go to state 47 ]
@@ -1577,9 +1577,6 @@ state 68
 
     suma            reduce using rule 27 (expresion -> expresion diferente expresion .)
     resta           reduce using rule 27 (expresion -> expresion diferente expresion .)
-    multiplicacion  reduce using rule 27 (expresion -> expresion diferente expresion .)
-    division        reduce using rule 27 (expresion -> expresion diferente expresion .)
-    modulo          reduce using rule 27 (expresion -> expresion diferente expresion .)
     mayor           reduce using rule 27 (expresion -> expresion diferente expresion .)
     menor           reduce using rule 27 (expresion -> expresion diferente expresion .)
     mayor_igual     reduce using rule 27 (expresion -> expresion diferente expresion .)
@@ -1588,16 +1585,19 @@ state 68
     diferente       reduce using rule 27 (expresion -> expresion diferente expresion .)
     punto_coma      reduce using rule 27 (expresion -> expresion diferente expresion .)
     parentesis_der  reduce using rule 27 (expresion -> expresion diferente expresion .)
+    multiplicacion  shift and go to state 42
+    division        shift and go to state 43
+    modulo          shift and go to state 44
     or              shift and go to state 51
     and             shift and go to state 52
 
+  ! multiplicacion  [ reduce using rule 27 (expresion -> expresion diferente expresion .) ]
+  ! division        [ reduce using rule 27 (expresion -> expresion diferente expresion .) ]
+  ! modulo          [ reduce using rule 27 (expresion -> expresion diferente expresion .) ]
   ! or              [ reduce using rule 27 (expresion -> expresion diferente expresion .) ]
   ! and             [ reduce using rule 27 (expresion -> expresion diferente expresion .) ]
   ! suma            [ shift and go to state 40 ]
   ! resta           [ shift and go to state 41 ]
-  ! multiplicacion  [ shift and go to state 42 ]
-  ! division        [ shift and go to state 43 ]
-  ! modulo          [ shift and go to state 44 ]
   ! mayor           [ shift and go to state 45 ]
   ! menor           [ shift and go to state 46 ]
   ! mayor_igual     [ shift and go to state 47 ]
@@ -1625,9 +1625,6 @@ state 69
 
     suma            reduce using rule 28 (expresion -> expresion or expresion .)
     resta           reduce using rule 28 (expresion -> expresion or expresion .)
-    multiplicacion  reduce using rule 28 (expresion -> expresion or expresion .)
-    division        reduce using rule 28 (expresion -> expresion or expresion .)
-    modulo          reduce using rule 28 (expresion -> expresion or expresion .)
     mayor           reduce using rule 28 (expresion -> expresion or expresion .)
     menor           reduce using rule 28 (expresion -> expresion or expresion .)
     mayor_igual     reduce using rule 28 (expresion -> expresion or expresion .)
@@ -1635,16 +1632,18 @@ state 69
     igual           reduce using rule 28 (expresion -> expresion or expresion .)
     diferente       reduce using rule 28 (expresion -> expresion or expresion .)
     or              reduce using rule 28 (expresion -> expresion or expresion .)
+    and             reduce using rule 28 (expresion -> expresion or expresion .)
     punto_coma      reduce using rule 28 (expresion -> expresion or expresion .)
     parentesis_der  reduce using rule 28 (expresion -> expresion or expresion .)
-    and             shift and go to state 52
+    multiplicacion  shift and go to state 42
+    division        shift and go to state 43
+    modulo          shift and go to state 44
 
-  ! and             [ reduce using rule 28 (expresion -> expresion or expresion .) ]
+  ! multiplicacion  [ reduce using rule 28 (expresion -> expresion or expresion .) ]
+  ! division        [ reduce using rule 28 (expresion -> expresion or expresion .) ]
+  ! modulo          [ reduce using rule 28 (expresion -> expresion or expresion .) ]
   ! suma            [ shift and go to state 40 ]
   ! resta           [ shift and go to state 41 ]
-  ! multiplicacion  [ shift and go to state 42 ]
-  ! division        [ shift and go to state 43 ]
-  ! modulo          [ shift and go to state 44 ]
   ! mayor           [ shift and go to state 45 ]
   ! menor           [ shift and go to state 46 ]
   ! mayor_igual     [ shift and go to state 47 ]
@@ -1652,6 +1651,7 @@ state 69
   ! igual           [ shift and go to state 49 ]
   ! diferente       [ shift and go to state 50 ]
   ! or              [ shift and go to state 51 ]
+  ! and             [ shift and go to state 52 ]
 
 
 state 70
@@ -1673,9 +1673,6 @@ state 70
 
     suma            reduce using rule 29 (expresion -> expresion and expresion .)
     resta           reduce using rule 29 (expresion -> expresion and expresion .)
-    multiplicacion  reduce using rule 29 (expresion -> expresion and expresion .)
-    division        reduce using rule 29 (expresion -> expresion and expresion .)
-    modulo          reduce using rule 29 (expresion -> expresion and expresion .)
     mayor           reduce using rule 29 (expresion -> expresion and expresion .)
     menor           reduce using rule 29 (expresion -> expresion and expresion .)
     mayor_igual     reduce using rule 29 (expresion -> expresion and expresion .)
@@ -1686,12 +1683,15 @@ state 70
     and             reduce using rule 29 (expresion -> expresion and expresion .)
     punto_coma      reduce using rule 29 (expresion -> expresion and expresion .)
     parentesis_der  reduce using rule 29 (expresion -> expresion and expresion .)
+    multiplicacion  shift and go to state 42
+    division        shift and go to state 43
+    modulo          shift and go to state 44
 
+  ! multiplicacion  [ reduce using rule 29 (expresion -> expresion and expresion .) ]
+  ! division        [ reduce using rule 29 (expresion -> expresion and expresion .) ]
+  ! modulo          [ reduce using rule 29 (expresion -> expresion and expresion .) ]
   ! suma            [ shift and go to state 40 ]
   ! resta           [ shift and go to state 41 ]
-  ! multiplicacion  [ shift and go to state 42 ]
-  ! division        [ shift and go to state 43 ]
-  ! modulo          [ shift and go to state 44 ]
   ! mayor           [ shift and go to state 45 ]
   ! menor           [ shift and go to state 46 ]
   ! mayor_igual     [ shift and go to state 47 ]
