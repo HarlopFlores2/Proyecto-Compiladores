@@ -110,7 +110,7 @@ def p_expresion(p):
         else:
             tmp = p[1]
         
-        p[0] = [tmp]
+        p[0] = [str(tmp)]
         
     elif p[1] == '(':
 
