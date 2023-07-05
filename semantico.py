@@ -62,9 +62,18 @@ class Condicion:
             raise Exception('Sentencias de control anidadas no permitidas')
         entorno.anidado = True
         if self.expresion.evaluar(entorno):
-            self.bloque_si.evaluar(entorno)
+            try:
+                self.bloque_si.evaluar(entorno)
+            except Exception as e:
+                print("Error: ", e)
+                return
         elif self.bloque_no is not None:
-            self.bloque_no.evaluar(entorno)
+            try:
+                self.bloque_no.evaluar(entorno)
+            except Exception as e:
+                print("Error: ", e)
+                return
+        entorno.anidado = False  # resetea la condición de anidamiento después de evaluar
 
 class Ciclo:
     def __init__(self, expresion, bloque):
@@ -129,5 +138,3 @@ class Expresion:
             return izquierda or derecha
         elif self.operador == '&&':
             return izquierda and derecha
-
-

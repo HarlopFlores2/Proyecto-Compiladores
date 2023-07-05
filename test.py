@@ -22,8 +22,9 @@ try:
     result = parser.parse(codigo_fuente, lexer=lexer)
     if result is not None:
         print("Compilación exitosa!")
-        print("codigo de 3 direcciones para operaciones aritmeticas: ")
-        print(sintactico.c3d)
+        print("Generacion de Codigo Intermedio: ")
+    for i, line in enumerate(sintactico.c3d, start=1):
+        print(f"L{i}: {line}")
 except Exception as e:
     print("Error durante la compilación:", str(e))
     sys.exit(1)

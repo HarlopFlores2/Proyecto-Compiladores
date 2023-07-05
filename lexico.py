@@ -1,3 +1,5 @@
+import ply.lex as lex
+
 reservadas = {
     'main': 'main',
     'if': 'if',
@@ -63,9 +65,7 @@ t_ignore = ' \t\n'
 def t_comentario_multilinea(t):
     r'/\*(.|\n)*?\*/'
     t.lexer.lineno += t.value.count('\n')
-    # No se devuelve nada para omitir el comentario en el análisis posterior
     pass
-
 
 def t_number(t):
     r'\d+'
@@ -73,23 +73,22 @@ def t_number(t):
     return t
 
 def t_cadena(t):
-    # que empiece y termine con comillas simples y que tenga cualquier caracter
     r'\'[^\']*\''
     t.value = str(t.value)
     return t
 
 def t_identificador(t):
     r'[a-zA-Z][a-zA-Z0-9]*'
-    t.type = reservadas.get(t.value, 'identificador')
+    if t.value in reservadas:
+        t.type = reservadas[t.value]
+    else:
+        t.type = 'identificador'
     return t
 
 def t_error(t):
     print("Caracter ilegal '%s'" % t.value[0])
     print("Linea: %d" % t.lexer.lineno)
+    print("Ubicación: %d" % t.lexer.lexpos)  # proporciona la ubicación exacta del error
     t.lexer.skip(1)
 
-
-import ply.lex as lex
-
 lexer = lex.lex()
-

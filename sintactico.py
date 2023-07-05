@@ -27,7 +27,7 @@ def newEtq():
     contEtq += 1
     return etq
 
-c3d = ""
+c3d = []
 
 def p_programa(p):
     '''programa : int declaraciones_var main parentesis_izq parentesis_der llave_izq bloque llave_der'''
@@ -37,10 +37,13 @@ def p_programa(p):
 def p_declaraciones_var(p):
     '''declaraciones_var : identificador coma declaraciones_var
                          | identificador punto_coma'''
+    global c3d
     if len(p) == 4:
         p[0] = p[1] + ',' + p[3]
+        c3d.append(p[1] + " ;")
     else:
         p[0] = p[1]
+        c3d.append(p[1] + " ;")
 
 def p_bloque(p):
     '''bloque : sentencia bloque
@@ -103,29 +106,16 @@ def p_expresion(p):
                  | number'''
     global c3d
     if len(p) == 2:
-        if p[1] == 'true':
-            tmp = Valor(True).evaluar()
-        elif p[1] == 'false':
-            tmp = Valor(False).evaluar()
-        else:
-            tmp = p[1]
-        
-        p[0] = [str(tmp)]
-        
+        p[0] = [str(p[1])]
     elif p[1] == '(':
-
-        tmp = newTemp() 
-        c3d +=( tmp + ' = ' + '(' + str(p[2][0]) + ')')
-        c3d += '\n'
-        
-        p[0] = [tmp, c3d]
+        tmp = newTemp()
+        c3d.append(tmp + " = (" + p[2][0] + ") ;")
+        p[0] = [tmp]
     else:
         p[0] = Expresion(p[1][0], p[2], p[3][0])
-
         tmp = newTemp()
-        c3d += (tmp + ' = ' + str(p[1][0]) + ' ' + str(p[2]) + ' ' + str(p[3][0]))
-        c3d += '\n'
-        p[0] = [tmp, c3d]
+        c3d.append(tmp + " = " + p[1][0] + " " + p[2] + " " + p[3][0] + " ;")
+        p[0] = [tmp]
 
 
 def p_error(p):
@@ -133,6 +123,8 @@ def p_error(p):
         print("Error de sintaxis: se alcanzó el final inesperadamente")
     else:
         print("Error de sintaxis en '%s'" % p.value)
+        print("Linea: %d" % p.lexer.lineno)
+        print("Ubicación: %d" % p.lexer.lexpos)  # proporciona la ubicación exacta del error
     parser.error = 1
 
 
@@ -156,4 +148,3 @@ if __name__ == '__main__':
     print(data)
     result = parser.parse(data, debug=1)
 
-print(c3d)
